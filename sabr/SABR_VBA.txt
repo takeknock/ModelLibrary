@@ -1,0 +1,37 @@
+
+Function sabrVol(fwd As Double, alpha As Double, beta As Double, rho As Double, nu As Double, t As Double, k As Double) As Double
+
+
+Dim z As Double
+Dim chi As Double
+
+z = (nu / alpha) * (fwd * k) ^ (0.5 * (1 - beta)) * WorksheetFunction.Ln(fwd / k)
+
+chi = WorksheetFunction.Ln((Sqr(1 - 2 * rho * z + z * z) + z - rho) / (1 - rho))
+
+Dim vol As Double
+
+If fwd = k Then
+    vol = alpha / (fwd) ^ (1 - beta)
+    vol = vol * (1 + ((1 - beta) * (1 - beta) * alpha * alpha / (24 * fwd ^ (2 - 2 * beta)) + 0.25 * rho * beta * nu * alpha / fwd ^ (1 - beta) + (2 - 3 * rho * rho) * nu * nu) * t)
+Else
+    vol = alpha / (fwd * k) ^ (0.5 * (1 - beta))
+
+    vol = vol / (1 + (1 - beta) * (1 - beta) / 24 * WorksheetFunction.Ln(fwd / k) * _
+    WorksheetFunction.Ln(fwd / k) + (1 - beta) ^ 4 * (WorksheetFunction.Ln(fwd / k)) ^ 4)
+
+    vol = vol * z / chi
+
+    vol = vol * (1 + ((1 - beta) * (1 - beta) * alpha * alpha / (24 * (fwd * k) ^ (1 - beta)) _
+    + 0.25 * rho * beta * nu * alpah / (fwd * k) ^ (0.5 * (1 - beta)) _
+    + (2 - 3 * rho * rho) * nu * nu / 24) * t)
+
+End If
+
+    sabrVol = vol
+
+End Function
+
+
+
+
