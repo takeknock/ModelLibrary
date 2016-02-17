@@ -9,6 +9,7 @@ before_script:
 
 script:
     - make all
+    - ./bin/a.out
 
 notifications:
     email:
