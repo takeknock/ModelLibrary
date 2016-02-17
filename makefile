@@ -1,5 +1,5 @@
 COMPILER  = g++
-CFLAGS    = -g -MMD -MP -Wall -Wextra -Winit-self -Wno-missing-field-initializers
+CFLAGS    = #-g -MMD -MP -Wall -Wextra -Winit-self -Wno-missing-field-initializers
 ifeq "$(shell getconf LONG_BIT)" "64"
   LDFLAGS = 
 else
@@ -34,5 +34,6 @@ clean:
 
 test:
 	./bin/a.out
+
 
 -include $(DEPENDS)
