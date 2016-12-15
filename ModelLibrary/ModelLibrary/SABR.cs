@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelLibrary
 {
-    public class Class1
+    public class SABR
     {
 
     }
