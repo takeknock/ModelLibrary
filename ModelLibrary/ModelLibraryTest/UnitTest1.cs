@@ -1,14 +1,15 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using ModelLibrary;
+
 
 namespace ModelLibraryTest
 {
-    [TestClass]
+    [TestFixture]
     public class UnitTest1
     {
         private double tolerance = 10E-10;
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
             SABR model = new SABR();
