@@ -1,5 +1,5 @@
 language: csharp
-solution: ModelLibrary.sln
+solution: ModelLibrary/ModelLibrary.sln
 
 notifications:
     email:
