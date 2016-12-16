@@ -1,19 +1,8 @@
-language: cpp
-compiler:
-- g++
-
-before_script:
-    - sudo apt-get update -qq
-    - sudo apt-get install libboost-dev
-    - sudo apt-get install libcppunit-dev
-
-script:
-    - make all
-    - ./bin/a.out
+language: csharp
+solution: ModelLibrary.sln
 
 notifications:
     email:
         recipients: takeknock@gmail.com
         on_success: change
         on_failure: always
-
