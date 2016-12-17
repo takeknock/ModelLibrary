@@ -1,7 +1,5 @@
 language: csharp
 solution: ModelLibrary/ModelLibrary.sln
-install:
-  - sudo apt-get install unit-console
 script:
   - nunit3-console ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
 notifications:
