@@ -1,7 +1,9 @@
 language: csharp
 solution: ModelLibrary/ModelLibrary.sln
+install:
+  - nuget install NUnit.Runners -OutputDirectory testrunner
 script:
-  - nunit3-console ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
+  -  .testrunner/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe .ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
 notifications:
     email:
         recipients: takeknock@gmail.com
