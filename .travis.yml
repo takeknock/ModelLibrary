@@ -3,13 +3,12 @@ solution: ModelLibrary/ModelLibrary.sln
 install:
   - nuget install NUnit.Runners -OutputDirectory testrunner
 script:
-  - ls -a .ModelLibrary
-  - ls -a .ModelLibrary/testrunner
+  - ls -a ModelLibrary
+  - ls -a testrunner
   - ls -a
   - ls -a ../
   - ls -a ../../
-  - mono --runtime=v4.0 .nuget/NuGet.exe install NUnit.Runners -Version 3.5.0 -o packages
-  - mono --runtime=v4.0 packages/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe -noxml -nodots -labels -stoponerror .ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
+  - mono --runtime=v4.0 testrunner/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe -noxml -nodots -labels -stoponerror .ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
 notifications:
     email:
         recipients: takeknock@gmail.com
