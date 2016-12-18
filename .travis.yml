@@ -7,6 +7,8 @@ script:
   - ls -a ModelLibrary/ModelLibraryTest
   - ls -a ModelLibrary/ModelLibraryTest/bin
   - ls -a ModelLibrary/ModelLibraryTest/bin/Debug
+  - ls -a
+  - ls -a ModelLirary/ModelLibrary
   - mono --runtime=v4.0 testrunner/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
 notifications:
     email:
