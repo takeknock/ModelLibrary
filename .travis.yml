@@ -4,6 +4,7 @@ install:
   - nuget install NUnit.Runners -OutputDirectory testrunner
 script:
   - ls -a .ModelLibrary
+  - ls -a .ModelLibrary/testrunner
   - ls -a
   - ls -a ../
   - ls -a ../../
