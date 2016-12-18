@@ -3,9 +3,7 @@ solution: ModelLibrary/ModelLibrary.sln
 install:
   - nuget install NUnit.Runners -OutputDirectory testrunner
 script:
-  - ls -a
-  - pwd
-  -  .testrunner/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe .ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
+  -  packages/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe .ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
 notifications:
     email:
         recipients: takeknock@gmail.com
