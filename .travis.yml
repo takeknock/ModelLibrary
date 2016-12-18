@@ -6,7 +6,7 @@ script:
   - ls -a
   - ls -a ../
   - ls -a ../../
-  -  packages/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe .ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
+  -  ModelLibrary/packages/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe .ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
 notifications:
     email:
         recipients: takeknock@gmail.com
