@@ -3,7 +3,7 @@ solution: ModelLibrary/ModelLibrary.sln
 install:
   - nuget install NUnit.Runners -OutputDirectory testrunner
 script:
-  - xbuild
+  - xbuild ModelLibrary/ModelLibrary.sln
   - ls -a ModelLibrary
   - ls -a ModelLibrary/ModelLibraryTest
   - ls -a ModelLibrary/ModelLibraryTest/bin
