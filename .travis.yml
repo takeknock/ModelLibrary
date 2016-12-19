@@ -1,7 +1,9 @@
 language: csharp
 solution: ModelLibrary/ModelLibrary.sln
 install:
-  - nuget install NUnit.Runners -OutputDirectory testrunner
+  - nuget install NUnit.Runners -OutputDirectory ModelLibrary/packages
+  - nuget install NUnit -OutputDirectory ModelLibrary/packages
+  - nuget install NUnit.Console -OutputDirectory ModelLibrary/packages
 script:
   - xbuild ModelLibrary/ModelLibrary.sln
   - ls -a ModelLibrary
@@ -10,7 +12,7 @@ script:
   - ls -a ModelLibrary/ModelLibraryTest/bin/Debug
   - ls -a
   - ls -a ModelLirary/ModelLibrary
-  - mono --runtime=v4.0 testrunner/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
+  - mono --runtime=v4.0 ModelLibrary/packages/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
 notifications:
     email:
         recipients: takeknock@gmail.com
