@@ -4,7 +4,7 @@ install:
   - nuget install NUnit.Runners -OutputDirectory ModelLibrary/packages
   - nuget install NUnit -OutputDirectory ModelLibrary/packages
   - nuget install NUnit.Console -OutputDirectory ModelLibrary/packages
-  - nuget install MathNet -OutputDirectory ModelLibrary/packages
+  - nuget install MathNet.Numerics -OutputDirectory ModelLibrary/packages
 script:
   - xbuild ModelLibrary/ModelLibrary.sln
   - mono --runtime=v4.0 ModelLibrary/packages/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
