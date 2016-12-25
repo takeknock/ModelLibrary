@@ -30,10 +30,15 @@ namespace Tester
             double volatility = 0.2;
             double spot = 100;
             double payment = 90.0;
-            CashDigital cashDigital = new CashDigital(strike, 1, payment);
+            CashDigital cashDigital = new CashDigital(strike, maturity, payment);
             Lognormal lognormal = new ModelLibrary.diffusion.Lognormal();
             double cashDigitalPrice = lognormal.evaluate(cashDigital, interestRate, spot, volatility);
             Console.WriteLine("cash digital option price : " + cashDigitalPrice.ToString());
+
+
+            AssetDigital assetDigital = new AssetDigital(strike, maturity);
+            double assetDigitalPrice = lognormal.evaluate(assetDigital, interestRate, spot, volatility);
+            Console.WriteLine("asset digital option price : " + assetDigitalPrice.ToString());
         }
     }
 }
