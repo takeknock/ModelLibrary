@@ -4,22 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Contract.DigitalOption;
+using Utility;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ModelLibrary.diffusion
 {
     public class Lognormal : IDissution
     {
-        private Func<double, double> normalDistribution = 
-            x =>
-            {
-                Chart chart = new Chart();
-                return chart.DataManipulator.Statistics.NormalDistribution(x);
-            };
-
+        //private Func<double, double> normalDistribution = 
+        //    x =>
+        //    {
+        //        Chart chart = new Chart();
+        //        return chart.DataManipulator.Statistics.NormalDistribution(x);
+        //    };
+        private NormalDisribution normDist = new NormalDisribution();
+        
         public Lognormal()
         {
-
         }
 
         public double evaluate(IDigitalOption digitalOption)
@@ -39,7 +40,7 @@ namespace ModelLibrary.diffusion
                 (Math.Log(digital._strike / spot) - (interestRate - dividend - 0.5 * volatility * volatility) * digital._maturity)
                 / (volatility * Math.Sqrt(digital._maturity));
 
-            return digital._paymentValue * Math.Exp(-interestRate * digital._maturity) * normalDistribution(d);
+            return digital._paymentValue * Math.Exp(-interestRate * digital._maturity) * normDist.normalDistribution(d);
         }
 
         public double evaluate(AssetDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
@@ -48,7 +49,7 @@ namespace ModelLibrary.diffusion
             double d = calculateNormalistributedVariable(
                     digital._strike, digital._maturity, spot, interestRate, dividend, volatility) 
                     + volatility * Math.Sqrt(digital._maturity);
-            double price = spot * Math.Exp(-interestRate * digital._maturity) * normalDistribution(d);
+            double price = spot * Math.Exp(-interestRate * digital._maturity) * normDist.normalDistribution(d);
             return price;
         }
 

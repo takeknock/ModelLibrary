@@ -54,6 +54,10 @@
       <Project>{21333720-ad8d-410b-b0cb-a5d869a3ee99}</Project>
       <Name>Contract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{0f6e0983-2429-444b-bcae-508c0b5583c2}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
