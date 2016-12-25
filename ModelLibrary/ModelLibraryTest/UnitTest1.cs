@@ -35,6 +35,7 @@ namespace ModelLibraryTest
         [Test]
         public void testCashDigitalOptionEvaluation()
         {
+            double thisTolerance = 10E-1;
             Lognormal lognormalDiffusion = new Lognormal();
             double strike = 100.0;
             double maturity = 1.0;
@@ -47,12 +48,14 @@ namespace ModelLibraryTest
 
             CashDigital cashDigitalOption = new CashDigital(strike, maturity, payment);
             double price = lognormalDiffusion.evaluate(cashDigitalOption, interestRate, spot, volatility);
-            Assert.AreEqual(expected, price, tolerance);
+            Assert.AreEqual(expected, price, thisTolerance);
         }
 
         [Test]
         public void testAssetDigitalOptionEvaluation()
         {
+            double thisTolerance = 10E-1;
+
             Lognormal lognormalDiffusion = new Lognormal();
             double strike = 100.0;
             double maturity = 1.0;
@@ -64,7 +67,7 @@ namespace ModelLibraryTest
 
             AssetDigital assetDigitalOption = new AssetDigital(strike, maturity);
             double price = lognormalDiffusion.evaluate(assetDigitalOption, interestRate, spot, volatility);
-            Assert.AreEqual(expected, price, tolerance);
+            Assert.AreEqual(expected, price, thisTolerance);
         }
     }
 }
