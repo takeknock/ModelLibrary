@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ModelLibrary;
+using ModelLibrary.diffusion;
+using Contract.DigitalOption;
+
 
 namespace Tester
 {
@@ -22,7 +25,15 @@ namespace Tester
             double rho = 0.5;
 
             double actual = model.calculateHaganLogNormalApproxVol(strike, maturity, interestRate, alpha, beta, nu, rho);
-            Console.WriteLine(actual);
+            //Console.WriteLine(actual);
+
+            double volatility = 0.2;
+            double spot = 100;
+            double payment = 90.0;
+            CashDigital cashDigital = new CashDigital(strike, 1, payment);
+            Lognormal lognormal = new ModelLibrary.diffusion.Lognormal();
+            double cashDigitalPrice = lognormal.evaluate(cashDigital, interestRate, spot, volatility);
+            Console.WriteLine("cash digital option price : " + cashDigitalPrice.ToString());
         }
     }
 }
