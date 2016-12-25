@@ -8,9 +8,16 @@ namespace Contract.DigitalOption
 {
     class AssetDigital : IDigitalOption
     {
-        public double payoff(double spot, double strike)
+        private double _strike { get; set; }
+
+        public AssetDigital(double strike)
         {
-            if (spot > strike)
+            _strike = strike;
+        }
+
+        public double payoff(double spot)
+        {
+            if (spot > _strike)
                 return spot;
 
             return 0.0;

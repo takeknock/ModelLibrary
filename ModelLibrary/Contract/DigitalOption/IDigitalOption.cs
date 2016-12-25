@@ -8,6 +8,7 @@ namespace Contract.DigitalOption
 {
     public interface IDigitalOption
     {
-    
+        double payoff(double spot);
+
     }
 }
