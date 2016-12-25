@@ -1,7 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
 using ModelLibrary;
-
+using ModelLibrary.diffusion;
+using Contract.DigitalOption;
 
 namespace ModelLibraryTest
 {
@@ -29,6 +30,41 @@ namespace ModelLibraryTest
             //double expected = 1;
             Assert.AreEqual(expected, actual, tolerance);
 
+        }
+
+        [Test]
+        public void testCashDigitalOptionEvaluation()
+        {
+            Lognormal lognormalDiffusion = new Lognormal();
+            double strike = 100.0;
+            double maturity = 1.0;
+            double interestRate = 0.2;
+            double volatility = 0.2;
+            double spot = 100.0;
+            double payment = 90.0;
+
+            double expected = 13.5626091592514;
+
+            CashDigital cashDigitalOption = new CashDigital(strike, maturity, payment);
+            double price = lognormalDiffusion.evaluate(cashDigitalOption, interestRate, spot, volatility);
+            Assert.AreEqual(expected, price, tolerance);
+        }
+
+        [Test]
+        public void testAssetDigitalOptionEvaluation()
+        {
+            Lognormal lognormalDiffusion = new Lognormal();
+            double strike = 100.0;
+            double maturity = 1.0;
+            double interestRate = 0.2;
+            double volatility = 0.2;
+            double spot = 100.0;
+
+            double expected = 19.8103022569233;
+
+            AssetDigital assetDigitalOption = new AssetDigital(strike, maturity);
+            double price = lognormalDiffusion.evaluate(assetDigitalOption, interestRate, spot, volatility);
+            Assert.AreEqual(expected, price, tolerance);
         }
     }
 }
