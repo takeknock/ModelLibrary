@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Contract.DigitalOption
 {
-    interface IDigitalOption
+    public interface IDigitalOption
     {
-
+    
     }
 }
