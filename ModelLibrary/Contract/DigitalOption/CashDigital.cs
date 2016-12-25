@@ -8,12 +8,10 @@ namespace Contract.DigitalOption
 {
     public class CashDigital : IDigitalOption
     {
-        public double payoff(double strike, double spot)
+        public double payoff(double strike, double spot, double paymentValue)
         {
             if (spot > strike)
-            {
-                return spot;
-            }
+                return paymentValue;
 
             return 0.0;
         }
