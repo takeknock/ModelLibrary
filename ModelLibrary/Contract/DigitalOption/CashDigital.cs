@@ -8,12 +8,14 @@ namespace Contract.DigitalOption
 {
     public class CashDigital : IDigitalOption
     {
-        private double _strike { get; set; }
-        private double _paymentValue { get; set; }
+        public double _strike { get; private set; }
+        public double _paymentValue { get; private set; }
+        public double _maturity{ get; private set; }
 
-        public CashDigital(double strike, double paymentValue)
+        public CashDigital(double strike, double maturity, double paymentValue)
         {
             _strike = strike;
+            _maturity = maturity;
             _paymentValue = paymentValue;
         }
 
