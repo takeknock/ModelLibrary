@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Contract.DigitalOption
 {
-    class AssetDigital : IDigitalOption
+    public class AssetDigital : IDigitalOption
     {
-        private double _strike { get; set; }
+        public double _strike { get; private set; }
+        public double _maturity { get; private set; }
 
-        public AssetDigital(double strike)
+        public AssetDigital(double strike, double maturity)
         {
             _strike = strike;
+            _maturity = maturity;
         }
 
         public double payoff(double spot)
