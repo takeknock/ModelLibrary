@@ -8,16 +8,16 @@ namespace Contract.DigitalOption
 {
     public class AssetDigital : IDigitalOption
     {
-        public double _strike { get; private set; }
-        public double _maturity { get; private set; }
+        public decimal _strike { get; private set; }
+        public decimal _maturity { get; private set; }
 
-        public AssetDigital(double strike, double maturity)
+        public AssetDigital(decimal strike, decimal maturity)
         {
             _strike = strike;
             _maturity = maturity;
         }
 
-        public double payoff(double spot)
+        public decimal payoff(decimal spot)
         {
             if (spot > _strike)
                 return spot;

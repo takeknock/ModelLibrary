@@ -11,20 +11,20 @@ namespace Utility
     {
         TrapezoidApproximation integral = new TrapezoidApproximation();
 
-        public double normalDistribution(double x)
+        public decimal normalDistribution(decimal x)
         {
-            Func<double, double> f = e =>
+            Func<decimal, decimal> f = e =>
             {
                 return normalDistProbabilityDensity(e);
             };
 
             const int partition = 10000000;
-            double result = integral.integrate(-100000, x, partition, f);
+            decimal result = integral.integrate(-100000, x, partition, f);
 
             return result;
         }
 
-        private double normalDistProbabilityDensity(double x)
+        private decimal normalDistProbabilityDensity(decimal x)
         {
             return Math.Exp(- 0.5 * x * x) / Math.Sqrt(2.0 * Math.PI);
 

@@ -8,14 +8,14 @@ namespace Utility.Integration
 {
     public class RectangleApproximation
     {
-        public delegate double integratedFunction(double x);
+        public delegate decimal integratedFunction(decimal x);
 
 
 
-        public double integrate(double start, double end, int numberOfPartition, integratedFunction f)
+        public decimal integrate(decimal start, decimal end, int numberOfPartition, integratedFunction f)
         {
-            double h = (end - start) / numberOfPartition;
-            double area = 0.0;
+            decimal h = (end - start) / numberOfPartition;
+            decimal area = 0.0;
             for (int i = 0; i < numberOfPartition; ++i)
             {
                 area += f(start) * h;

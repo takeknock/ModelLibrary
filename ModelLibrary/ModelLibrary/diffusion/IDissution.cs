@@ -9,6 +9,6 @@ namespace ModelLibrary.diffusion
 {
     interface IDissution
     {
-        double evaluate(IDigitalOption digitalOption);
+        decimal evaluate(IDigitalOption digitalOption);
     }
 }

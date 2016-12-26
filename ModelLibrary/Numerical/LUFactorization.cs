@@ -10,6 +10,6 @@ namespace Numerical
 {
     public class LUFactorization
     {
-        //Matrix<double> mat = new Matrix<double>();
+        //Matrix<decimal> mat = new Matrix<decimal>();
     }
 }
