@@ -8,10 +8,10 @@ namespace ModelLibrary
 {
     public class SABR
     {
-        private const decimal _tolerance = 10E-10;
-        public decimal calculateHaganLogNormalApproxVol(decimal strike, decimal maturity, decimal forwardRate, decimal alpha, decimal beta, decimal nu, decimal rho)
+        private const double _tolerance = 10E-10;
+        public double calculateHaganLogNormalApproxVol(double strike, double maturity, double forwardRate, double alpha, double beta, double nu, double rho)
         {
-            decimal impliedVolatility = 0.0;
+            double impliedVolatility = 0.0;
             if (isEqual(forwardRate, strike, _tolerance))
             {
                 // ATM
@@ -25,10 +25,10 @@ namespace ModelLibrary
                 // except ATM
                 // prepare to calculate Black implied log normal volatility
 
-                decimal z = nu / alpha * Math.Pow((strike * forwardRate), 0.5 * (1.0 - beta))
+                double z = nu / alpha * Math.Pow((strike * forwardRate), 0.5 * (1.0 - beta))
                     * Math.Log(forwardRate / strike);
 
-                decimal xi = Math.Log((Math.Sqrt(1.0 - 2.0 * rho * z + z * z) + z - rho) / (1.0 - rho));
+                double xi = Math.Log((Math.Sqrt(1.0 - 2.0 * rho * z + z * z) + z - rho) / (1.0 - rho));
 
 
                 impliedVolatility = (alpha / (Math.Pow((strike * forwardRate), 0.5 * (1.0 - beta))
@@ -43,7 +43,7 @@ namespace ModelLibrary
             return impliedVolatility;
         }
 
-        private bool isEqual(decimal x, decimal y, decimal tolerance)
+        private bool isEqual(double x, double y, double tolerance)
         {
             return Math.Abs(x - y) < tolerance;
         }

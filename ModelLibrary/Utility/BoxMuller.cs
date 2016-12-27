@@ -15,13 +15,13 @@ namespace Utility
             _random = new Random(seed);
         }
 
-        public decimal next(decimal mean = 0.0, decimal volatility = 1.0)
+        public double next(double mean = 0.0, double volatility = 1.0)
         {
 
-            decimal rand1 = _random.Nextdecimal();
-            decimal rand2 = _random.Nextdecimal();
+            double rand1 = _random.NextDouble();
+            double rand2 = _random.NextDouble();
 
-            decimal normDist = Math.Sqrt(-2.0 * Math.Log(rand1)) * Math.Cos(2.0 * Math.PI * rand2);
+            double normDist = Math.Sqrt(-2.0 * Math.Log(rand1)) * Math.Cos(2.0 * Math.PI * rand2);
             return volatility * normDist + mean;
         }
     }

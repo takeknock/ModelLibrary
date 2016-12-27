@@ -11,7 +11,7 @@ namespace ModelLibrary.diffusion
 {
     public class Lognormal : IDissution
     {
-        //private Func<decimal, decimal> normalDistribution = 
+        //private Func<double, double> normalDistribution = 
         //    x =>
         //    {
         //        Chart chart = new Chart();
@@ -23,18 +23,18 @@ namespace ModelLibrary.diffusion
         {
         }
 
-        public decimal evaluate(IDigitalOption digitalOption)
+        public double evaluate(IDigitalOption digitalOption)
         {
             return 0.0;
         }
 
-        public decimal evaluate(CashDigital digital, decimal interestRate, decimal spot, decimal volatility, decimal dividend = 0.0)
+        public double evaluate(CashDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
         {
             // assume that the followings are constant
             // interestRate
             // volatility
 
-            decimal d =
+            double d =
                 //calculateNormalistributedVariable(
                 //digital._strike, digital._maturity, spot, interestRate, dividend, volatility);
                 (Math.Log(digital._strike / spot) - (interestRate - dividend - 0.5 * volatility * volatility) * digital._maturity)
@@ -43,20 +43,20 @@ namespace ModelLibrary.diffusion
             return digital._paymentValue * Math.Exp(-interestRate * digital._maturity) * normDist.normalDistribution(d);
         }
 
-        public decimal evaluate(AssetDigital digital, decimal interestRate, decimal spot, decimal volatility, decimal dividend = 0.0)
+        public double evaluate(AssetDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
         {
 
-            decimal d = calculateNormalistributedVariable(
+            double d = calculateNormalistributedVariable(
                     digital._strike, digital._maturity, spot, interestRate, dividend, volatility) 
                     + volatility * Math.Sqrt(digital._maturity);
-            decimal price = spot * Math.Exp(-interestRate * digital._maturity) * normDist.normalDistribution(d);
+            double price = spot * Math.Exp(-interestRate * digital._maturity) * normDist.normalDistribution(d);
             return price;
         }
 
-        private decimal calculateNormalistributedVariable(
-            decimal strike, decimal maturity, decimal spot, decimal interestRate, decimal dividend, decimal volatility)
+        private double calculateNormalistributedVariable(
+            double strike, double maturity, double spot, double interestRate, double dividend, double volatility)
         {
-            decimal normalDistributed =
+            double normalDistributed =
                 (Math.Log(strike / spot) - (interestRate - dividend - 0.5 * volatility * volatility) * maturity)
                 / (volatility * Math.Sqrt(maturity));
             return normalDistributed;

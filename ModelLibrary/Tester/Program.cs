@@ -15,29 +15,29 @@ namespace Tester
         static void Main(string[] args)
         {
             SABR model = new SABR();
-            decimal strike = 100.0;
-            decimal maturity = 1.0;
-            decimal interestRate = 0.2;
+            double strike = 100.0;
+            double maturity = 1.0;
+            double interestRate = 0.2;
 
-            decimal alpha = 0.1;
-            decimal beta = 0.02;
-            decimal nu = 0.1;
-            decimal rho = 0.5;
+            double alpha = 0.1;
+            double beta = 0.02;
+            double nu = 0.1;
+            double rho = 0.5;
 
-            decimal actual = model.calculateHaganLogNormalApproxVol(strike, maturity, interestRate, alpha, beta, nu, rho);
+            double actual = model.calculateHaganLogNormalApproxVol(strike, maturity, interestRate, alpha, beta, nu, rho);
             //Console.WriteLine(actual);
 
-            decimal volatility = 0.2;
-            decimal spot = 100;
-            decimal payment = 90.0;
+            double volatility = 0.2;
+            double spot = 100;
+            double payment = 90.0;
             CashDigital cashDigital = new CashDigital(strike, maturity, payment);
             Lognormal lognormal = new ModelLibrary.diffusion.Lognormal();
-            decimal cashDigitalPrice = lognormal.evaluate(cashDigital, interestRate, spot, volatility);
+            double cashDigitalPrice = lognormal.evaluate(cashDigital, interestRate, spot, volatility);
             Console.WriteLine("cash digital option price : " + cashDigitalPrice.ToString());
 
 
             AssetDigital assetDigital = new AssetDigital(strike, maturity);
-            decimal assetDigitalPrice = lognormal.evaluate(assetDigital, interestRate, spot, volatility);
+            double assetDigitalPrice = lognormal.evaluate(assetDigital, interestRate, spot, volatility);
             Console.WriteLine("asset digital option price : " + assetDigitalPrice.ToString());
         }
     }

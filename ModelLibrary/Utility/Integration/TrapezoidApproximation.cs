@@ -8,13 +8,13 @@ namespace Utility.Integration
 {
     public class TrapezoidApproximation
     {
-        public delegate decimal integratedFunction(decimal x);
+        public delegate double integratedFunction(double x);
 
-        public decimal integrate(decimal start, decimal end, int numberOfPartition, Func<decimal, decimal> f)
+        public double integrate(double start, double end, int numberOfPartition, Func<double, double> f)
         {
-            decimal h = (end - start) / numberOfPartition;
-            decimal area = 0.0;
-            decimal next = start + h;
+            double h = (end - start) / numberOfPartition;
+            double area = 0.0;
+            double next = start + h;
 
             for (int i = 1; i < numberOfPartition; ++i)
             {
