@@ -17,19 +17,36 @@ namespace UtilityTest
         }
 
         private double tolerance = 10E-10;
+        private double easyTolerance = 10E-1;
+        private double x = 5;
+
+
 
         [Test]
         public void testRectangleApproximation()
         {
             Utility.Integration.RectangleApproximation i = new Utility.Integration.RectangleApproximation();
-            double x = 5;
+            double expected = x * x * x * x / 4.0 + x * x * x / 3.0 + x;
+
+
+            // integrate between 0 and 5
+
+            double actual = i.integrate(0, 5, 1000, testFunction);
+            
+            Assert.AreEqual(expected, actual, easyTolerance);
+        }
+
+        [Test]
+        public void testTrapezoidApproximation()
+        {
+            Utility.Integration.TrapezoidApproximation i = new Utility.Integration.TrapezoidApproximation();
 
             // integrate between 0 and 5
             double expected = x * x * x * x / 4.0 + x * x * x / 3.0 + x;
 
             double actual = i.integrate(0, 5, 1000, testFunction);
 
-            Assert.AreEqual(expected, actual, tolerance);
+            Assert.AreEqual(expected, actual, easyTolerance);
         }
 
     }
