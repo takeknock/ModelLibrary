@@ -16,7 +16,7 @@ namespace UtilityTest
             return x * x * x + x * x + 1;
         }
 
-        private double tolerance = 10E-10;
+        private double tolerance = 10E-12;
         private double easyTolerance = 10E-1;
         private double x = 5;
 
@@ -59,7 +59,7 @@ namespace UtilityTest
 
             double actual = i.integrate(0, 5, 1000, testFunction);
 
-            Assert.AreEqual(expected, actual, easyTolerance);
+            Assert.AreEqual(expected, actual, tolerance);
         }
 
     }
