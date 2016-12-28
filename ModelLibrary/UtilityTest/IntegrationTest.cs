@@ -49,5 +49,18 @@ namespace UtilityTest
             Assert.AreEqual(expected, actual, easyTolerance);
         }
 
+        [Test]
+        public void testSimpsonApproximation()
+        {
+            Utility.Integration.SimpsonApproximation i = new Utility.Integration.SimpsonApproximation();
+
+            // integrate between 0 and 5
+            double expected = x * x * x * x / 4.0 + x * x * x / 3.0 + x;
+
+            double actual = i.integrate(0, 5, 1000, testFunction);
+
+            Assert.AreEqual(expected, actual, easyTolerance);
+        }
+
     }
 }

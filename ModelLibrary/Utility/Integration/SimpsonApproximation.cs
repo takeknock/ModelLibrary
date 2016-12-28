@@ -18,7 +18,7 @@ namespace Utility.Integration
 
             for (int i = 0; i < numberOfPartition; ++i)
             {
-                area += width * (f(start) + 4 * f(start + 0.5 * width) + f(next));
+                area += width * (f(start) + 4 * f(start + 0.5 * width) + f(next)) / 6.0;
                 start += width;
                 next += width;
             }
