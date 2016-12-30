@@ -39,6 +39,14 @@ namespace Tester
             AssetDigital assetDigital = new AssetDigital(strike, maturity);
             double assetDigitalPrice = lognormal.evaluate(assetDigital, interestRate, spot, volatility);
             Console.WriteLine("asset digital option price : " + assetDigitalPrice.ToString());
+
+            Rebonato reb = new Rebonato();
+            double a = 0.2;
+            double b = 0.1;
+            double c = 0.3;
+            double d = 0.5;
+            double volatilityReb = reb.getCapletVolatility(maturity, a, b, c, d);
+            Console.WriteLine("instantanious volatility with Rebonato equation : " + volatilityReb.ToString());
         }
     }
 }
