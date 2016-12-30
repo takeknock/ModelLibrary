@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="diffusion\IDissution.cs" />
     <Compile Include="diffusion\Lognormal.cs" />
+    <Compile Include="Rebonato.cs" />
     <Compile Include="SABR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
