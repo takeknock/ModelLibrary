@@ -24,7 +24,7 @@ namespace Utility
             return result;
         }
 
-        private double getStandardNormalDistributionProbabilityDensity(double x)
+        public double getStandardNormalDistributionProbabilityDensity(double x)
         {
             return Math.Exp(- 0.5 * x * x) / Math.Sqrt(2.0 * Math.PI);
         }
