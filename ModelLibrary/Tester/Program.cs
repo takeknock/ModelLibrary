@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ModelLibrary;
 using ModelLibrary.diffusion;
 using Contract.DigitalOption;
-
+using Contract;
 
 namespace Tester
 {
@@ -47,6 +47,11 @@ namespace Tester
             double d = 0.5;
             double volatilityReb = reb.getCapletVolatility(maturity, a, b, c, d);
             Console.WriteLine("instantanious volatility with Rebonato equation : " + volatilityReb.ToString());
+
+            Normal normal = new ModelLibrary.diffusion.Normal();
+            SpreadOption spreadOption = new SpreadOption(strike, maturity, true);
+            double spreadOptionPrice = normal.evaluate(spreadOption, interestRate, volatility, spot);
+            Console.WriteLine("spread option price : " + spreadOptionPrice.ToString());
         }
     }
 }
