@@ -9,7 +9,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ModelLibrary.diffusion
 {
-    public class Lognormal : IDissution
+    public class Lognormal : IDiffusion
     {
         //private Func<double, double> normalDistribution = 
         //    x =>
