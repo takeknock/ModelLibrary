@@ -9,13 +9,13 @@ namespace Utility
 {
     public class NormalDisribution
     {
-        TrapezoidApproximation integral = new TrapezoidApproximation();
+        SimpsonApproximation integral = new SimpsonApproximation();
 
         public double normalDistribution(double x)
         {
             Func<double, double> f = e =>
             {
-                return normalDistProbabilityDensity(e);
+                return getStandardNormalDistributionProbabilityDensity(e);
             };
 
             const int partition = 10000000;
@@ -24,10 +24,11 @@ namespace Utility
             return result;
         }
 
-        private double normalDistProbabilityDensity(double x)
+        private double getStandardNormalDistributionProbabilityDensity(double x)
         {
             return Math.Exp(- 0.5 * x * x) / Math.Sqrt(2.0 * Math.PI);
-
         }
+
+
     }
 }
