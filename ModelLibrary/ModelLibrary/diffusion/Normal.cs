@@ -8,13 +8,14 @@ using Utility;
 
 namespace ModelLibrary.diffusion
 {
-    class Normal
+    public class Normal
     {
         public double evaluate(SpreadOption spreadOption, double interestRate, double volatility, double underlying)
         {
             double discountFactor = getDiscountFactor(interestRate, spreadOption._maturity);
             NormalDisribution n = new NormalDisribution();
             double d = (underlying - spreadOption._strike) / (volatility * spreadOption._maturity);
+
             double diffusionProbDensity =
                 n.getStandardNormalDistributionProbabilityDensity(d);
 
