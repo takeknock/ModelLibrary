@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contract
 {
-    class SpreadOption
+    public class SpreadOption
     {
         public double _strike { get; private set; }
         public double _maturity { get; private set; }
