@@ -44,8 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="diffusion\IDissution.cs" />
+    <Compile Include="diffusion\IDiffusion.cs" />
     <Compile Include="diffusion\Lognormal.cs" />
+    <Compile Include="diffusion\Normal.cs" />
     <Compile Include="Rebonato.cs" />
     <Compile Include="SABR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
