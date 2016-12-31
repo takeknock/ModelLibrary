@@ -12,7 +12,7 @@ namespace Contract
         public double _maturity { get; private set; }
         public bool _isCall { get; private set; }
 
-        SpreadOption(double strike, double maturity, bool isCall)
+        public SpreadOption(double strike, double maturity, bool isCall)
         {
             _strike = strike;
             _maturity = maturity;
