@@ -11,11 +11,11 @@ namespace Utility
     {
         SimpsonApproximation integral = new SimpsonApproximation();
 
-        public double normalDistribution(double x)
+        public double cumulativeDensityFuntion(double x)
         {
             Func<double, double> f = e =>
             {
-                return getStandardNormalDistributionProbabilityDensity(e);
+                return probabilityDensityFunction(e);
             };
 
             const int partition = 10000000;
@@ -24,7 +24,7 @@ namespace Utility
             return result;
         }
 
-        public double getStandardNormalDistributionProbabilityDensity(double x)
+        public double probabilityDensityFunction(double x)
         {
             return Math.Exp(- 0.5 * x * x) / Math.Sqrt(2.0 * Math.PI);
         }

@@ -40,7 +40,7 @@ namespace ModelLibrary.diffusion
                 (Math.Log(digital._strike / spot) - (interestRate - dividend - 0.5 * volatility * volatility) * digital._maturity)
                 / (volatility * Math.Sqrt(digital._maturity));
 
-            return digital._paymentValue * Math.Exp(-interestRate * digital._maturity) * normDist.normalDistribution(d);
+            return digital._paymentValue * Math.Exp(-interestRate * digital._maturity) * normDist.cumulativeDensityFuntion(d);
         }
 
         public double evaluate(AssetDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
@@ -49,7 +49,7 @@ namespace ModelLibrary.diffusion
             double d = calculateNormalistributedVariable(
                     digital._strike, digital._maturity, spot, interestRate, dividend, volatility) 
                     + volatility * Math.Sqrt(digital._maturity);
-            double price = spot * Math.Exp(-interestRate * digital._maturity) * normDist.normalDistribution(d);
+            double price = spot * Math.Exp(-interestRate * digital._maturity) * normDist.cumulativeDensityFuntion(d);
             return price;
         }
 

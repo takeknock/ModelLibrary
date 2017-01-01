@@ -17,10 +17,10 @@ namespace ModelLibrary.diffusion
             double d = (underlying - spreadOption._strike) / (volatility * spreadOption._maturity);
 
             double diffusionProbDensity =
-                n.getStandardNormalDistributionProbabilityDensity(d);
+                n.probabilityDensityFunction(d);
 
             double price = discountFactor * (volatility * Math.Sqrt(spreadOption._maturity) 
-                    * diffusionProbDensity + (underlying - spreadOption._strike) * n.normalDistribution(d));
+                    * diffusionProbDensity + (underlying - spreadOption._strike) * n.probabilityDensityFunction(d));
             return price;
         }
 
