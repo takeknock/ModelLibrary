@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using ModelLibrary;
 using ModelLibrary.diffusion;
+using Contract;
 using Contract.DigitalOption;
 
 namespace ModelLibraryTest
@@ -68,6 +69,26 @@ namespace ModelLibraryTest
             AssetDigital assetDigitalOption = new AssetDigital(strike, maturity);
             double price = lognormalDiffusion.evaluate(assetDigitalOption, interestRate, spot, volatility);
             Assert.AreEqual(expected, price, thisTolerance);
+        }
+
+        [Test]
+        public void testSpreadOptionEvaluation()
+        {
+            Normal normalDiffusion = new Normal();
+            double strike = 100.0;
+            double maturity = 1.0;
+            double interestRate = 0.2;
+            double volatility = 0.2;
+            double spot = 100.0;
+
+            SpreadOption contract = new SpreadOption(strike, maturity, true);
+            double price = normalDiffusion.evaluate(contract, interestRate, volatility, spot);
+
+            double expected = 0.0653252627335425;
+
+            Assert.AreEqual(expected, price, tolerance);
+
+
         }
     }
 }
