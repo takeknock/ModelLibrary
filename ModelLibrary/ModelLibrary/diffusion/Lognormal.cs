@@ -7,12 +7,14 @@ using Contract.DigitalOption;
 using Utility;
 using System.Windows.Forms.DataVisualization.Charting;
 using log4net;
+using log4net.Repository.Hierarchy;
+using log4net.Appender;
 
 namespace ModelLibrary.diffusion
 {
     public class Lognormal : IDiffusion
     {
-        private ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         //private Func<double, double> normalDistribution = 
         //    x =>
         //    {
@@ -20,23 +22,22 @@ namespace ModelLibrary.diffusion
         //        return chart.DataManipulator.Statistics.NormalDistribution(x);
         //    };
         private NormalDisribution normDist = new NormalDisribution();
-        
+
+
         public Lognormal()
         {
-            logger.Info(System.Reflection.MethodBase.GetCurrentMethod().ToString());
         }
 
         public double evaluate(IDigitalOption digitalOption)
         {
             return 0.0;
         }
-
+        
         public double evaluate(CashDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
         {
             // assume that the followings are constant
             // interestRate
             // volatility
-            logger.Info(System.Reflection.MethodBase.GetCurrentMethod().ToString());
 
             double d =
                 //calculateNormalistributedVariable(
@@ -49,7 +50,6 @@ namespace ModelLibrary.diffusion
 
         public double evaluate(AssetDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
         {
-            logger.Info(System.Reflection.MethodBase.GetCurrentMethod().ToString());
 
             double d = calculateNormalistributedVariable(
                     digital._strike, digital._maturity, spot, interestRate, dividend, volatility) 
@@ -61,8 +61,6 @@ namespace ModelLibrary.diffusion
         private double calculateNormalistributedVariable(
             double strike, double maturity, double spot, double interestRate, double dividend, double volatility)
         {
-            logger.Info(System.Reflection.MethodBase.GetCurrentMethod().ToString());
-
             double normalDistributed =
                 (Math.Log(strike / spot) - (interestRate - dividend - 0.5 * volatility * volatility) * maturity)
                 / (volatility * Math.Sqrt(maturity));
