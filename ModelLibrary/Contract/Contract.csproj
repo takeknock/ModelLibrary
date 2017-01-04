@@ -43,6 +43,7 @@
     <Compile Include="DigitalOption\AssetDigital.cs" />
     <Compile Include="DigitalOption\CashDigital.cs" />
     <Compile Include="DigitalOption\IDigitalOption.cs" />
+    <Compile Include="PowerOption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpreadOption.cs" />
   </ItemGroup>
