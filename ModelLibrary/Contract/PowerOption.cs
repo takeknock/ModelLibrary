@@ -8,10 +8,10 @@ namespace Contract
 {
     public class PowerOption
     {
-        private double _strike;
-        private double _maturity;
-        private double _exponent;
-        private bool _isCall;
+        public double _strike { get; private set; }
+        public double _maturity { get; private set; }
+        public double _exponent { get; private set; }
+        public bool _isCall { get; private set; }
 
         public PowerOption(double strike, double exponent, double maturity, bool isCall)
         {
