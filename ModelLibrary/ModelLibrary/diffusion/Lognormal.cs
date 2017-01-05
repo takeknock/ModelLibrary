@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Contract.DigitalOption;
+using Contract;
 using Utility;
 using System.Windows.Forms.DataVisualization.Charting;
 using log4net;
@@ -51,14 +52,34 @@ namespace ModelLibrary.diffusion
         public double calculatePrice(AssetDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
         {
 
-            double d = calculateNormalistributedVariable(
+            double d = calculateStandardNormaldistributedVariable(
                     digital._strike, digital._maturity, spot, interestRate, dividend, volatility) 
                     + volatility * Math.Sqrt(digital._maturity);
             double price = spot * Math.Exp(-interestRate * digital._maturity) * normDist.cumulativeDensityFuntion(d);
             return price;
         }
 
-        private double calculateNormalistributedVariable(
+        public double calculatePrice(
+            PowerOption powerOption, double interestRate, double underlying, double volatility, double dividend)
+        {
+            NormalDisribution n = new NormalDisribution();
+            double d = (Math.Log(underlying / powerOption._strike) +
+                    (interestRate - dividend - 0.5 * volatility * volatility) * powerOption._maturity)
+                / (volatility * powerOption._maturity);
+            double discountFactor = Math.Exp(-interestRate * powerOption._maturity);
+            double expectation = Math.Pow(underlying, powerOption._exponent)
+                * Math.Exp(powerOption._exponent
+                    * (interestRate - dividend
+                        + 0.5 * (powerOption._exponent - 1.0) * volatility * volatility)
+                        * powerOption._maturity)
+                * n.cumulativeDensityFuntion(d + powerOption._exponent * volatility * powerOption._maturity)
+                - Math.Pow(powerOption._strike, powerOption._exponent) * n.cumulativeDensityFuntion(d);
+            double price = discountFactor * expectation;
+            return price;
+
+        }
+
+        private double calculateStandardNormaldistributedVariable(
             double strike, double maturity, double spot, double interestRate, double dividend, double volatility)
         {
             double normalDistributed =
@@ -66,5 +87,7 @@ namespace ModelLibrary.diffusion
                 / (volatility * Math.Sqrt(maturity));
             return normalDistributed;
         }
+
+
     }
 }
