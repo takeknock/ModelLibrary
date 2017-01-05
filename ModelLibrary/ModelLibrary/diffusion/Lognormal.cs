@@ -60,7 +60,7 @@ namespace ModelLibrary.diffusion
         }
 
         public double calculatePrice(
-            PowerOption powerOption, double interestRate, double underlying, double volatility, double dividend)
+            PowerOption powerOption, double interestRate, double underlying, double volatility, double dividend = 0.0)
         {
             NormalDisribution n = new NormalDisribution();
             double d = (Math.Log(underlying / powerOption._strike) +
