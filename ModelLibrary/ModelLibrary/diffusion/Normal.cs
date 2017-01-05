@@ -10,7 +10,7 @@ namespace ModelLibrary.diffusion
 {
     public class Normal
     {
-        public double evaluate(SpreadOption spreadOption, double interestRate, double volatility, double underlying)
+        public double calculatePrice(SpreadOption spreadOption, double interestRate, double volatility, double underlying)
         {
             double discountFactor = getDiscountFactor(interestRate, spreadOption._maturity);
             NormalDisribution n = new NormalDisribution();

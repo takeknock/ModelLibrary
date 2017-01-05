@@ -43,13 +43,13 @@ namespace Tester
             double payment = 90.0;
             CashDigital cashDigital = new CashDigital(strike, maturity, payment);
             Lognormal lognormal = new ModelLibrary.diffusion.Lognormal();
-            double cashDigitalPrice = lognormal.evaluate(cashDigital, interestRate, spot, volatility);
+            double cashDigitalPrice = lognormal.calculatePrice(cashDigital, interestRate, spot, volatility);
             Console.WriteLine("cash digital option price : " + cashDigitalPrice.ToString());
 
             logger.Info("calculate the price of asset digital option.");
 
             AssetDigital assetDigital = new AssetDigital(strike, maturity);
-            double assetDigitalPrice = lognormal.evaluate(assetDigital, interestRate, spot, volatility);
+            double assetDigitalPrice = lognormal.calculatePrice(assetDigital, interestRate, spot, volatility);
             Console.WriteLine("asset digital option price : " + assetDigitalPrice.ToString());
 
             logger.Info("calculate volatility of caplet with Rebonato equation.");
@@ -65,7 +65,7 @@ namespace Tester
             logger.Info("calculate the price of spread option.");
             Normal normal = new ModelLibrary.diffusion.Normal();
             SpreadOption spreadOption = new SpreadOption(strike, maturity, true);
-            double spreadOptionPrice = normal.evaluate(spreadOption, interestRate, volatility, spot);
+            double spreadOptionPrice = normal.calculatePrice(spreadOption, interestRate, volatility, spot);
             Console.WriteLine("spread option price : " + spreadOptionPrice.ToString());
 
             logger.Info("=============================pricing finished=============================");

@@ -28,12 +28,12 @@ namespace ModelLibrary.diffusion
         {
         }
 
-        public double evaluate(IDigitalOption digitalOption)
+        public double calculatePrice(IDigitalOption digitalOption)
         {
             return 0.0;
         }
         
-        public double evaluate(CashDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
+        public double calculatePrice(CashDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
         {
             // assume that the followings are constant
             // interestRate
@@ -48,7 +48,7 @@ namespace ModelLibrary.diffusion
             return digital._paymentValue * Math.Exp(-interestRate * digital._maturity) * normDist.cumulativeDensityFuntion(d);
         }
 
-        public double evaluate(AssetDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
+        public double calculatePrice(AssetDigital digital, double interestRate, double spot, double volatility, double dividend = 0.0)
         {
 
             double d = calculateNormalistributedVariable(

@@ -48,7 +48,7 @@ namespace ModelLibraryTest
             double expected = 13.5626091592514;
 
             CashDigital cashDigitalOption = new CashDigital(strike, maturity, payment);
-            double price = lognormalDiffusion.evaluate(cashDigitalOption, interestRate, spot, volatility);
+            double price = lognormalDiffusion.calculatePrice(cashDigitalOption, interestRate, spot, volatility);
             Assert.AreEqual(expected, price, thisTolerance);
         }
 
@@ -67,7 +67,7 @@ namespace ModelLibraryTest
             double expected = 19.8103022569233;
 
             AssetDigital assetDigitalOption = new AssetDigital(strike, maturity);
-            double price = lognormalDiffusion.evaluate(assetDigitalOption, interestRate, spot, volatility);
+            double price = lognormalDiffusion.calculatePrice(assetDigitalOption, interestRate, spot, volatility);
             Assert.AreEqual(expected, price, thisTolerance);
         }
 
@@ -82,7 +82,7 @@ namespace ModelLibraryTest
             double spot = 100.0;
 
             SpreadOption contract = new SpreadOption(strike, maturity, true);
-            double price = normalDiffusion.evaluate(contract, interestRate, volatility, spot);
+            double price = normalDiffusion.calculatePrice(contract, interestRate, volatility, spot);
 
             double expected = 0.0653252627335425;
 
