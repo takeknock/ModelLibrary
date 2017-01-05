@@ -68,6 +68,11 @@ namespace Tester
             double spreadOptionPrice = normal.calculatePrice(spreadOption, interestRate, volatility, spot);
             Console.WriteLine("spread option price : " + spreadOptionPrice.ToString());
 
+            logger.Info("calculate the price of power option.");
+            PowerOption powerOption = new PowerOption(strike, 2, maturity, true);
+            double powerOptionPrice = lognormal.calculatePrice(powerOption, interestRate, spot, volatility);
+            Console.WriteLine("power option price : " + powerOptionPrice.ToString());
+
             logger.Info("=============================pricing finished=============================");
         }
     }
