@@ -90,5 +90,23 @@ namespace ModelLibraryTest
 
 
         }
+
+        [Test]
+        public void testPowerOptionEvaluation()
+        {
+            Lognormal lognormalDiff = new Lognormal();
+            double strike = 100.0;
+            double maturity = 1.0;
+            double interestRate = 0.2;
+            double volatility = 0.2;
+            double spot = 100.0;
+
+            PowerOption contract = new PowerOption(strike, 2, maturity, true);
+            double actual = lognormalDiff.calculatePrice(contract, interestRate, spot, volatility);
+
+            double expected = 4801.622938787;
+
+            Assert.AreEqual(expected, actual, tolerance);
+        }
     }
 }
