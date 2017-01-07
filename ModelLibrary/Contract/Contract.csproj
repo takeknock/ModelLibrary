@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CashOnDeliveryOption.cs" />
     <Compile Include="DigitalOption\AssetDigital.cs" />
     <Compile Include="DigitalOption\CashDigital.cs" />
     <Compile Include="DigitalOption\IDigitalOption.cs" />
