@@ -79,6 +79,20 @@ namespace ModelLibrary.diffusion
 
         }
 
+        public double calculatePremium(
+            CashOnDeliveryOption contract, double underlyingAtMaturity, double interestRate, 
+            double volatility, double dividend = 0.0)
+        {
+            NormalDisribution n = new NormalDisribution();
+            double d = calculateStandardNormaldistributedVariable(
+                contract._strike, contract._maturity, underlyingAtMaturity, interestRate, dividend, volatility);
+            double premium = underlyingAtMaturity * Math.Exp(interestRate - dividend) * contract._maturity
+                * n.cumulativeDensityFuntion(d + volatility * contract._maturity) / n.cumulativeDensityFuntion(d)
+                - contract._strike;
+
+            return premium;
+        }
+
         private double calculateStandardNormaldistributedVariable(
             double strike, double maturity, double spot, double interestRate, double dividend, double volatility)
         {
