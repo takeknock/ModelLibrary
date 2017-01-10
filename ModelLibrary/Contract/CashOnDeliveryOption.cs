@@ -12,7 +12,7 @@ namespace Contract
         public double _strike { get; private set; }
         public double? _premium { get; private set; }
 
-        CashOnDeliveryOption(double maturity, double strike)
+        public CashOnDeliveryOption(double maturity, double strike)
         {
             _maturity = maturity;
             _strike = strike;
