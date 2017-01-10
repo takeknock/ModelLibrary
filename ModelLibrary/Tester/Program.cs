@@ -73,6 +73,11 @@ namespace Tester
             double powerOptionPrice = lognormal.calculatePrice(powerOption, interestRate, spot, volatility);
             Console.WriteLine("power option price : " + powerOptionPrice.ToString());
 
+            logger.Info("calculate the premium of cash on delivery option");
+            CashOnDeliveryOption cashonOption = new CashOnDeliveryOption(maturity, strike);
+            double cashOnDeliveryOptionPremium = lognormal.calculatePremium(cashonOption, spot, interestRate, volatility);
+            Console.WriteLine("cash on delivery option premium : " + cashOnDeliveryOptionPremium.ToString());
+
             logger.Info("=============================pricing finished=============================");
         }
     }
