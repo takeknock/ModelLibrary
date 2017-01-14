@@ -108,5 +108,22 @@ namespace ModelLibraryTest
 
             Assert.AreEqual(expected, actual, tolerance);
         }
+
+        [Test]
+        public void testPlainVanillaOptionEvaluation()
+        {
+            Lognormal lognomalDiff = new Lognormal();
+            double strike = 100.0;
+            double maturity = 1.0;
+            double interestRate = 0.2;
+            double volatility = 0.2;
+            double spot = 100.0;
+
+            PlainVanillaOption callOption = new PlainVanillaOption(strike, maturity, true);
+            double actual = lognomalDiff.calculatePrice(callOption, spot,interestRate, volatility);
+            double expected = 3.96290578882745;
+
+            Assert.AreEqual(expected, actual, tolerance);
+        }
     }
 }
