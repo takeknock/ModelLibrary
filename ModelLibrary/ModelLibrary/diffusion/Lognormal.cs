@@ -93,6 +93,23 @@ namespace ModelLibrary.diffusion
             return premium;
         }
 
+        public double calculatePrice(PlainVanillaOption contract, double underlying, double interestRate, 
+            double volatility, double dividend = 0.0)
+        {
+            NormalDisribution n = new NormalDisribution();
+            double d1 = (Math.Log(contract._strike / underlying) 
+                    + (interestRate - dividend - 0.5 * volatility * volatility * Math.Sqrt(contract._maturity)))
+                / (volatility * Math.Sqrt(contract._maturity));
+            double discountFactor = Math.Exp(-interestRate * contract._maturity);
+            double d2 = (Math.Log(contract._strike / underlying) 
+                    + (interestRate - dividend + 0.5 * volatility * volatility * Math.Sqrt(contract._maturity)))
+                / (volatility * Math.Sqrt(contract._maturity));
+
+            double price = discountFactor * (underlying * n.cumulativeDensityFuntion(d2)
+                    - contract._strike * n.cumulativeDensityFuntion(d1));
+            return price;
+        }
+
         private double calculateStandardNormaldistributedVariable(
             double strike, double maturity, double spot, double interestRate, double dividend, double volatility)
         {
