@@ -8,11 +8,11 @@ namespace Contract
 {
     public class PlainVanillaOption
     {
-        private double _strike;
-        private double _maturity;
-        private bool _isCall;
+        public double _strike { get; private set; }
+        public double _maturity { get; private set; }
+        public bool _isCall { get; private set; }
 
-        PlainVanillaOption(double strike, double maturity, bool isCall)
+        public PlainVanillaOption(double strike, double maturity, bool isCall)
         {
             _strike = strike;
             _maturity = maturity;
