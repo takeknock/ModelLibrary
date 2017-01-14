@@ -10,11 +10,13 @@ namespace Contract
     {
         private double _strike;
         private double _maturity;
+        private bool _isCall;
 
-        PlainVanillaOption(double strike, double maturity)
+        PlainVanillaOption(double strike, double maturity, bool isCall)
         {
             _strike = strike;
             _maturity = maturity;
+            _isCall = isCall;
         }
 
 
