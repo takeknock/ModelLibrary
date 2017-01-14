@@ -78,6 +78,12 @@ namespace Tester
             double cashOnDeliveryOptionPremium = lognormal.calculatePremium(cashonOption, spot, interestRate, volatility);
             Console.WriteLine("cash on delivery option premium : " + cashOnDeliveryOptionPremium.ToString());
 
+
+            logger.Info("calculate the price of plain vanilla option");
+            PlainVanillaOption vanillaOption = new PlainVanillaOption(strike, maturity, true);
+            double vanillaOptionPrice = lognormal.calculatePrice(vanillaOption, spot, interestRate, volatility);
+            Console.WriteLine("plain vanilla option price : " + vanillaOptionPrice.ToString());
+
             logger.Info("=============================pricing finished=============================");
         }
     }
