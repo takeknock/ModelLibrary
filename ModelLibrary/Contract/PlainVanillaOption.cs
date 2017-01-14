@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Contract
 {
-    class PlainVanillaOption
+    public class PlainVanillaOption
     {
+        private double _strike;
+        private double _maturity;
+
+        PlainVanillaOption(double strike, double maturity)
+        {
+            _strike = strike;
+            _maturity = maturity;
+        }
+
+
     }
 }
