@@ -20,6 +20,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityTest", "UtilityTest\UtilityTest.csproj", "{9D87C1D2-FC0F-4A69-B501-9D303E7BFD2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YieldCurve", "YieldCurve\YieldCurve.csproj", "{8F986BD1-94A8-4AF0-9B4B-A51F22AC50F1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9D5F0AA8-A21A-4A78-B583-99459337F870} = {9D5F0AA8-A21A-4A78-B583-99459337F870}
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market", "Market\Market.csproj", "{9D5F0AA8-A21A-4A78-B583-99459337F870}"
 EndProject
 Global
