@@ -8,19 +8,20 @@ namespace Market
 {
     public class SwapRate
     {
-        public double value;
+        public double quote;
+        
 
         public SwapRate(double swapValue)
         {
-            value = swapValue;
+            quote = swapValue;
         }
 
         public decimal? ToDecimal()
         {
-            if (value == 0.0)
+            if (quote == 0.0)
                 return null;
 
-            return (decimal)value;
+            return (decimal)quote;
         }
     }
 }
