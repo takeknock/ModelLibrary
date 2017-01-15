@@ -214,3 +214,6 @@ ModelManifest.xml
 
 # log file
 *.log
+
+# opendb
+*.opendb
