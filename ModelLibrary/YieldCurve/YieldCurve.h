@@ -7,7 +7,7 @@ namespace yc {
 
     public:
         YieldCurve();
-
+        void build();
     };
 
 }// namespace yc

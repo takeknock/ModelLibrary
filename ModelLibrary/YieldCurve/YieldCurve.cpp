@@ -7,4 +7,9 @@ namespace yc {
 
     }
 
+    void YieldCurve::build()
+    {
+
+    }
+
 }//namespace yc
