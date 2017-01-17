@@ -9,7 +9,7 @@ solution: ModelLibrary/ModelLibrary.sln
 
 script:
   - xbuild ModelLibrary/ModelLibrary.sln
-  - mono --runtime=v4.0 ModelLibrary/packages/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
+  - mono --runtime=v4.0 ModelLibrary/packages/NUnit.ConsoleRunner.3.6.0/tools/nunit3-console.exe ModelLibrary/ModelLibraryTest/bin/Debug/ModelLibraryTest.dll
 notifications:
     email:
         recipients: takeknock@gmail.com
