@@ -1,4 +1,5 @@
 #pragma once
+#include "YieldCurve.h"
 
 #ifdef CPP_EXPORTS
 #define CPP_API __declspec(dllexport)
@@ -7,12 +8,11 @@
 #endif
 
 namespace yc {
-    class YieldCurve {
+    class YieldCurveBuilder {
     private:
 
     public:
-        YieldCurve();
-        void build();
+        YieldCurveBuilder();
+        yc::YieldCurve createYieldCurve();
     };
-
-}// namespace yc
+}

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Tenor.h"
 #include "YieldCurve.h"
 
@@ -9,7 +10,7 @@ namespace yc {
 
     void YieldCurve::build()
     {
-
+        std::cout << "test!!!" << std::endl;
     }
 
 }//namespace yc
