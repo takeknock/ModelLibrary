@@ -11,7 +11,7 @@ namespace Adapter
     {
         static void Main()
         {
-            YieldCurve yc = new global::YieldCurve();
+            YieldCurve yc = new YieldCurve();
             yc.build();
 
             YieldCurveBuilder builder = new YieldCurveBuilder();
