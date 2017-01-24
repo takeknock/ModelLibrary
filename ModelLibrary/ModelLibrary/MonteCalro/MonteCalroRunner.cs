@@ -8,5 +8,9 @@ namespace ModelLibrary.MonteCalro
 {
     class MonteCalroRunner
     {
+        double calculatePrice()
+        {
+            return 0.0;
+        }
     }
 }
