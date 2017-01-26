@@ -87,7 +87,6 @@ move /Y SWIGTYPE_p_YieldCurve.cs ..\Adapter\
 move /Y YieldCurve.cs ..\Adapter\
 move /Y YieldCurveBuilder.cs ..\Adapter\
 xcopy /Y ..\Debug\YieldCurve.dll ..\Adapter\bin\Debug\
-xcopy /Y ..\Debug\YieldCurve.lib ..\Adapter\bin\Debug\
 
 
 </Command>

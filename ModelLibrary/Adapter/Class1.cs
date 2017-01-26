@@ -11,11 +11,11 @@ namespace Adapter
     {
         static void Main()
         {
-            YieldCurve yc = new YieldCurve();
-            yc.build();
+            //YieldCurve yc = new YieldCurve();
+            //yc.build();
 
             YieldCurveBuilder builder = new YieldCurveBuilder();
-            yc = builder.createYieldCurve();
+            YieldCurve yc = builder.createYieldCurve();
         }        
     }
 }
