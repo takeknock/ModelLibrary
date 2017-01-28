@@ -16,12 +16,12 @@ namespace ModelLibrary.MonteCarlo
             double dt = contract._maturity / numberOfDiscretization;
             double drift = (interestRate - dividend - 0.5 * volatility * volatility);
             double logedUnderlying = Math.Log(underlying);
+            BoxMuller rndGenerater = new BoxMuller(100);
 
             List<double> sum = new List<double>();
             for (int j = 1; j < numberOfPaths; ++j)
             {
                 double thisLogedUnderlying = logedUnderlying;
-                BoxMuller rndGenerater = new BoxMuller(j * j + 20);
 
                 for (int i = 1; i < numberOfDiscretization; ++i)
                 {
@@ -33,7 +33,8 @@ namespace ModelLibrary.MonteCarlo
                 sum.Add(cT);
             }
             double sumOfCT = sum.Select(i => i).Sum();
-            double price = sumOfCT / numberOfPaths * Math.Exp(-interestRate * contract._maturity);
+            double discountFactor = Math.Exp(-interestRate * contract._maturity);
+            double price = sumOfCT / numberOfPaths * discountFactor;
             return price;
         }
     }
