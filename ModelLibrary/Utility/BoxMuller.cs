@@ -15,6 +15,11 @@ namespace Utility
             _random = new Random(seed);
         }
 
+        public BoxMuller()
+        {
+            _random = new Random();
+        }
+
         public double next(double mean = 0.0, double volatility = 1.0)
         {
 
