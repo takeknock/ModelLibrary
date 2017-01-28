@@ -87,7 +87,7 @@ namespace Tester
             logger.Info("calculate the price of plain vanilla option with Monte Carlo simulation.");
             double vanillaOptionPriceWithMc = lognormal.calculatePriceWithMC(
                 vanillaOption, spot, interestRate, volatility, 1000, 100);
-            Console.WriteLine("plain vanilla option price : " + vanillaOptionPriceWithMc.ToString());
+            Console.WriteLine("plain vanilla option price with MonteCarlo: " + vanillaOptionPriceWithMc.ToString());
 
             logger.Info("=============================pricing finished=============================");
         }
