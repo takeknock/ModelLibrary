@@ -21,8 +21,8 @@ namespace Utility
             double rand1 = _random.NextDouble();
             double rand2 = _random.NextDouble();
 
-            double normDist = Math.Sqrt(-2.0 * Math.Log(rand1)) * Math.Cos(2.0 * Math.PI * rand2);
-            return volatility * normDist + mean;
+            double normalDistributedRandomness = Math.Sqrt(-2.0 * Math.Log(rand1)) * Math.Cos(2.0 * Math.PI * rand2);
+            return volatility * normalDistributedRandomness + mean;
         }
     }
 }
