@@ -301,7 +301,10 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_Swig(SWIG_CSharpStringHel
 
 #include "YieldCurveBuilder.h"
 #include "YieldCurve.h"
+#include "Tenor.h"
 
+
+#include <string>
 
 
 #ifdef __cplusplus
@@ -360,6 +363,30 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_YieldCurve(void * jarg1) {
   yc::YieldCurve *arg1 = (yc::YieldCurve *) 0 ;
   
   arg1 = (yc::YieldCurve *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Tenor(char * jarg1) {
+  void * jresult ;
+  std::string arg1 ;
+  yc::Tenor *result = 0 ;
+  
+  if (!jarg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return 0;
+  }
+  (&arg1)->assign(jarg1); 
+  result = (yc::Tenor *)new yc::Tenor(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_Tenor(void * jarg1) {
+  yc::Tenor *arg1 = (yc::Tenor *) 0 ;
+  
+  arg1 = (yc::Tenor *)jarg1; 
   delete arg1;
 }
 

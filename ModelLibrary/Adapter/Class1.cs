@@ -11,11 +11,15 @@ namespace Adapter
     {
         static void Main()
         {
+            if (System.Environment.Is64BitProcess)
+            {
+                Console.WriteLine("64ビットで動作しています");
+            }
             //YieldCurve yc = new YieldCurve();
             //yc.build();
 
-            YieldCurveBuilder builder = new YieldCurveBuilder();
-            YieldCurve yc = builder.createYieldCurve();
+            //YieldCurveBuilder builder = new YieldCurveBuilder();
+            //YieldCurve yc = builder.createYieldCurve();
         }        
     }
 }

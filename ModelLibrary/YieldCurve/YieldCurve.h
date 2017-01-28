@@ -11,8 +11,8 @@ namespace yc {
     private:
 
     public:
-        YieldCurve();
-        void build();
+        CPP_API YieldCurve();
+        CPP_API void build();
     };
 
 }// namespace yc

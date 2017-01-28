@@ -22,6 +22,7 @@
     <ProjectGuid>{410803B7-FE31-4E49-A583-E6AFC7798057}</ProjectGuid>
     <RootNamespace>YieldCurve</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>YieldCurve</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -38,7 +39,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -78,7 +79,8 @@
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <PreBuildEvent>
-      <Command>swig -c++ -csharp  swig.i</Command>
+      <Command>swig -c++ -csharp  -o swig_wrap.cxx swig.i</Command>
+      <Message>%(Command)</Message>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>move /Y Swig.cs ..\Adapter\
@@ -101,7 +103,23 @@ xcopy /Y ..\Debug\YieldCurve.dll ..\Adapter\bin\Debug\
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>CPP_EXPORTS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <PostBuildEvent>
+      <Command>move /Y Swig.cs ..\Adapter\
+move /Y SwigPINVOKE.cs ..\Adapter\
+move /Y SWIGTYPE_p_YieldCurve.cs ..\Adapter\
+move /Y YieldCurve.cs ..\Adapter\
+move /Y YieldCurveBuilder.cs ..\Adapter\
+move /Y Tenor.cs ..\Adapter\
+xcopy /Y ..\x64\Debug\YieldCurve.dll ..\Adapter\bin\Debug\</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>swig -c++ -csharp  -o swig_wrap.cxx swig.i</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>%(Command)</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -141,12 +159,10 @@ xcopy /Y ..\Debug\YieldCurve.dll ..\Adapter\bin\Debug\
     <ClCompile Include="YieldCurveBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Market\Market.csproj">
-      <Project>{9d5f0aa8-a21a-4a78-b583-99459337f870}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="swig.i" />
+    <ClInclude Include="swig.i">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+    </ClInclude>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

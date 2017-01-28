@@ -204,4 +204,10 @@ class SwigPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("Swig", EntryPoint="CSharp_delete_YieldCurve")]
   public static extern void delete_YieldCurve(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Swig", EntryPoint="CSharp_new_Tenor")]
+  public static extern global::System.IntPtr new_Tenor(string jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Swig", EntryPoint="CSharp_delete_Tenor")]
+  public static extern void delete_Tenor(global::System.Runtime.InteropServices.HandleRef jarg1);
 }

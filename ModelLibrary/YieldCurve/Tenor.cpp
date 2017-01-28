@@ -2,7 +2,7 @@
 
 namespace yc {
     Tenor::Tenor(std::string tenor)
-        :_tenor(tenor)
+    :_tenor(tenor)
     {
 
     }

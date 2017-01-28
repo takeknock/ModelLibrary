@@ -12,7 +12,7 @@ namespace yc {
     private:
 
     public:
-        YieldCurveBuilder();
-        yc::YieldCurve createYieldCurve();
+        CPP_API YieldCurveBuilder();
+        CPP_API yc::YieldCurve createYieldCurve();
     };
 }

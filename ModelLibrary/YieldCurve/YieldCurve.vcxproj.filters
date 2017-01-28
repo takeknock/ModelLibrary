@@ -24,6 +24,7 @@
     <ClInclude Include="YieldCurveBuilder.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="swig.i" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tenor.cpp">
@@ -41,6 +42,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="swig.i" />
   </ItemGroup>
 </Project>

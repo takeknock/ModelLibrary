@@ -1,6 +1,12 @@
 #pragma once
 #include <string>
 
+#ifdef CPP_EXPORTS
+#define CPP_API __declspec(dllexport)
+#else
+#define CPP_API __declspec(dllimport)
+#endif
+
 
 namespace yc {
 
@@ -8,7 +14,7 @@ namespace yc {
     private:
         std::string _tenor;
     public:
-        Tenor(std::string tenor);
+        CPP_API Tenor(std::string tenor);
 
 
     };
