@@ -10,7 +10,7 @@ namespace ModelLibrary.MonteCarlo
 {
     class MonteCarloRunner
     {
-        double calculatePrice(PlainVanillaOption contract, double underlying, double interestRate,
+        public double calculatePrice(PlainVanillaOption contract, double underlying, double interestRate,
             double volatility, int numberOfPaths, int numberOfDiscretization, double dividend = 0.0)
         {
             double dt = contract._maturity / numberOfDiscretization;
