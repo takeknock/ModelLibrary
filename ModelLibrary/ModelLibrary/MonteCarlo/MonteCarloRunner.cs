@@ -16,7 +16,7 @@ namespace ModelLibrary.MonteCarlo
             double dt = contract._maturity / numberOfDiscretization;
             double drift = (interestRate - dividend - 0.5 * volatility * volatility);
             double logedUnderlying = Math.Log(underlying);
-            BoxMuller rndGenerater = new BoxMuller(100);
+            BoxMuller rndGenerater = new BoxMuller();
 
             List<double> sum = new List<double>();
             for (int j = 1; j < numberOfPaths; ++j)
