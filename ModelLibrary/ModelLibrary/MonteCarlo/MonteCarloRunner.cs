@@ -12,13 +12,21 @@ namespace ModelLibrary.MonteCarlo
     {
         public int _numberOfPaths { get; private set; }
         public int _numberOfDiscretization { get; private set; }
-        public int _seedOfRandomness { get; private set; }
+        private BoxMuller rndGenerator;
 
-        public MonteCarloRunner(int numberOfPaths, int numberOfDiscretization, int seed = 0)
+        public MonteCarloRunner(int numberOfPaths, int numberOfDiscretization, int? seed = null)
         {
             _numberOfPaths = numberOfPaths;
             _numberOfDiscretization = numberOfDiscretization;
-            _seedOfRandomness = seed;
+            if (seed == null)
+            {
+                rndGenerator = new BoxMuller();
+            }
+            else
+            {
+                int intSeed = (int)seed;
+                rndGenerator = new BoxMuller(intSeed);
+            }
         }
 
         public double calculatePrice(PlainVanillaOption contract, double underlying, double interestRate,
