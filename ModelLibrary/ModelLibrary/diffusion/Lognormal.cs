@@ -113,10 +113,9 @@ namespace ModelLibrary.diffusion
         public double calculatePriceWithMC(PlainVanillaOption contract, double underlying, double interestRate,
             double volatility, int numberOfPaths, int numberOfDiscretization, double dividend = 0.0)
         {
-            MonteCarlo.MonteCarloRunner runner = new MonteCarlo.MonteCarloRunner();
+            MonteCarlo.MonteCarloRunner runner = new MonteCarlo.MonteCarloRunner(numberOfPaths, numberOfDiscretization);
             double price = runner.calculatePrice(
-                contract, underlying, interestRate, volatility,
-                numberOfPaths, numberOfDiscretization);
+                contract, underlying, interestRate, volatility);
 
             return price;
 
