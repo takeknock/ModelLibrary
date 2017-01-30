@@ -10,6 +10,17 @@ namespace ModelLibrary.MonteCarlo
 {
     class MonteCarloRunner
     {
+        public int _numberOfPaths { get; private set; }
+        public int _numberOfDiscretization { get; private set; }
+        public int _seedOfRandomness { get; private set; }
+
+        public MonteCarloRunner(int numberOfPaths, int numberOfDiscretization, int seed = 0)
+        {
+            _numberOfPaths = numberOfPaths;
+            _numberOfDiscretization = numberOfDiscretization;
+            _seedOfRandomness = seed;
+        }
+
         public double calculatePrice(PlainVanillaOption contract, double underlying, double interestRate,
             double volatility, int numberOfPaths, int numberOfDiscretization, double dividend = 0.0)
         {
