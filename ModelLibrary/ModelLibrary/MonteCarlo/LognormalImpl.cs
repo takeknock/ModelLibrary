@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace ModelLibrary.MonteCarlo
 {
-    class LognormalImpl
+    static class LognormalImpl
     {
+        static public double calculateNextStep(double thisStep, double drift, double dt, double volatility, double randomness)
+        {
+            return thisStep + drift * dt + volatility * Math.Sqrt(dt) * randomness;
 
+        }
     }
 }
