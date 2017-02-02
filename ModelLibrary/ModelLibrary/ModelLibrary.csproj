@@ -50,6 +50,7 @@
     <Compile Include="diffusion\IDiffusion.cs" />
     <Compile Include="diffusion\Lognormal.cs" />
     <Compile Include="diffusion\Normal.cs" />
+    <Compile Include="MonteCarlo\LognormalImpl.cs" />
     <Compile Include="MonteCarlo\MonteCarloRunner.cs" />
     <Compile Include="Rebonato.cs" />
     <Compile Include="SABR.cs" />
