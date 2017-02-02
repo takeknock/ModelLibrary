@@ -45,7 +45,8 @@ namespace ModelLibrary.MonteCarlo
                 for (int i = 1; i < _numberOfDiscretization; ++i)
                 {
                     double randomness = rndGenerater.next();
-                    thisLogedUnderlying += drift * dt + volatility * Math.Sqrt(dt) * randomness;
+                    thisLogedUnderlying = LognormalImpl.calculateNextStep(
+                        thisLogedUnderlying, drift, dt, volatility, randomness);
                 }
                 double underlyingAtMaturity = Math.Exp(thisLogedUnderlying);
                 double cT = Math.Max(0.0, underlyingAtMaturity - contract._strike);
