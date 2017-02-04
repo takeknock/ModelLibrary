@@ -32,8 +32,9 @@ namespace ModelLibrary.MonteCarlo
         public double calculatePrice(PlainVanillaOption contract, double underlying, double interestRate,
             double volatility, double dividend = 0.0)
         {
+
             double dt = contract._maturity / _numberOfDiscretization;
-            double drift = (interestRate - dividend - 0.5 * volatility * volatility);
+            double drift = LognormalImpl.calculateDrift(interestRate, volatility, dividend);
             double logedUnderlying = Math.Log(underlying);
             BoxMuller rndGenerater = new BoxMuller();
 

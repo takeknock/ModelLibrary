@@ -13,5 +13,11 @@ namespace ModelLibrary.MonteCarlo
             return thisStep + drift * dt + volatility * Math.Sqrt(dt) * randomness;
 
         }
+        static public double calculateDrift(double interestRate, double volatility, double dividend)
+        {
+            return (interestRate - dividend - 0.5 * volatility * volatility); // impl
+
+        }
+
     }
 }
