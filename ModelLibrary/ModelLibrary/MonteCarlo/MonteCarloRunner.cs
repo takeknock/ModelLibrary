@@ -54,7 +54,9 @@ namespace ModelLibrary.MonteCarlo
                 sum.Add(cT);
             }
             double sumOfCT = sum.Select(i => i).Sum();
-            double discountFactor = Math.Exp(-interestRate * contract._maturity);
+            double discountFactor = 
+                LognormalImpl.calculateDiscountFactor(contract, interestRate);
+
             double price = sumOfCT / _numberOfPaths * discountFactor;
             return price;
         }

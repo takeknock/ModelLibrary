@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Contract;
 
 namespace ModelLibrary.MonteCarlo
 {
@@ -19,5 +20,9 @@ namespace ModelLibrary.MonteCarlo
 
         }
 
+        static public double calculateDiscountFactor(PlainVanillaOption contract, double interestRate)
+        {
+            return Math.Exp(-interestRate * contract._maturity);
+        }
     }
 }
