@@ -10,6 +10,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using log4net;
 using log4net.Repository.Hierarchy;
 using log4net.Appender;
+using ModelLibrary.MonteCarlo.Discretization;
 
 namespace ModelLibrary.diffusion
 {
@@ -113,7 +114,8 @@ namespace ModelLibrary.diffusion
         public double calculatePriceWithMC(PlainVanillaOption contract, double underlying, double interestRate,
             double volatility, int numberOfPaths, int numberOfDiscretization, double dividend = 0.0)
         {
-            MonteCarlo.MonteCarloRunner runner = new MonteCarlo.MonteCarloRunner(numberOfPaths, numberOfDiscretization);
+            EulerMaruyama discretizer = new EulerMaruyama();
+            MonteCarlo.MonteCarloRunner runner = new MonteCarlo.MonteCarloRunner(numberOfPaths, numberOfDiscretization, discretizer);
             double price = runner.calculatePrice(
                 contract, underlying, interestRate, volatility);
 
