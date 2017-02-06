@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Contract;
 using Utility;
+using ModelLibrary.MonteCarlo.Discretization;
 
 namespace ModelLibrary.MonteCarlo
 {
@@ -13,11 +14,13 @@ namespace ModelLibrary.MonteCarlo
         public int _numberOfPaths { get; private set; }
         public int _numberOfDiscretization { get; private set; }
         private BoxMuller rndGenerator;
+        private IDiscretizer _discretizer;
 
-        public MonteCarloRunner(int numberOfPaths, int numberOfDiscretization, int? seed = null)
+        public MonteCarloRunner(int numberOfPaths, int numberOfDiscretization, IDiscretizer discretizer, int? seed = null)
         {
             _numberOfPaths = numberOfPaths;
             _numberOfDiscretization = numberOfDiscretization;
+            _discretizer = discretizer;
             if (seed == null)
             {
                 rndGenerator = new BoxMuller();
@@ -46,8 +49,8 @@ namespace ModelLibrary.MonteCarlo
                 for (int i = 1; i < _numberOfDiscretization; ++i)
                 {
                     double randomness = rndGenerater.next();
-                    thisLogedUnderlying = LognormalImpl.calculateNextStep(
-                        thisLogedUnderlying, drift, dt, volatility, randomness);
+                    thisLogedUnderlying = _discretizer.calculateNextStep(
+                            thisLogedUnderlying, drift, dt, volatility, randomness);
                 }
                 double underlyingAtMaturity = Math.Exp(thisLogedUnderlying);
                 double cT = Math.Max(0.0, underlyingAtMaturity - contract._strike);
