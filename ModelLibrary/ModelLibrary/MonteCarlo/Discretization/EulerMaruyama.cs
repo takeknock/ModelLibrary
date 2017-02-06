@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace ModelLibrary.MonteCarlo.Discretization
 {
-    class Euler
+    class EulerMaruyama : IDiscretizer
     {
+        public EulerMaruyama()
+        {
+        }
+        public double calculateNextStep(
+            double thisStep, double drift,
+            double dt, double volatility, double randomness)
+        {
+            return LognormalImpl.calculateNextStep(thisStep, drift, dt, volatility, randomness);
+        }
 
-    }
+    };
 }
+

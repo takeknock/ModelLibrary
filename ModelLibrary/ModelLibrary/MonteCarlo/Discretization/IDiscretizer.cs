@@ -8,6 +8,8 @@ namespace ModelLibrary.MonteCarlo.Discretization
 {
     interface IDiscretizer
     {
-
+        double calculateNextStep(
+            double underlying, double drift, 
+            double dt, double volatility, double randomness);
     }
 }
