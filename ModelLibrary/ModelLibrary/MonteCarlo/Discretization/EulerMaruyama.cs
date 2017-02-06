@@ -8,5 +8,6 @@ namespace ModelLibrary.MonteCarlo.Discretization
 {
     class Euler
     {
+
     }
 }
