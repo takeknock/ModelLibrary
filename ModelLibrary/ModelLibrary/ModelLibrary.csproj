@@ -50,6 +50,7 @@
     <Compile Include="diffusion\IDiffusion.cs" />
     <Compile Include="diffusion\Lognormal.cs" />
     <Compile Include="diffusion\Normal.cs" />
+    <Compile Include="HullWhite.cs" />
     <Compile Include="MonteCarlo\Discretization\EulerMaruyama.cs" />
     <Compile Include="MonteCarlo\Discretization\IDiscretizer.cs" />
     <Compile Include="MonteCarlo\LognormalImpl.cs" />

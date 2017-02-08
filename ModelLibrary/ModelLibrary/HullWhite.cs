@@ -8,5 +8,6 @@ namespace ModelLibrary
 {
     class HullWhite
     {
+        public double reversionRate { get; private set; }
     }
 }
