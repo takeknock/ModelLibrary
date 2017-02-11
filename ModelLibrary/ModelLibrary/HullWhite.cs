@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Contract;
+using Utility;
 
 namespace ModelLibrary
 {
@@ -19,5 +21,23 @@ namespace ModelLibrary
         {
             return _shortRateVol / _a * (1.0 - Math.Exp(-_a * tau));
         }
+
+        public double calculatePrice(
+            PlainVanillaOption contract, double interestRate, double volatility)
+        {
+            //double tau = contract._maturity;
+            //double discountFactor = calculateDiscountFactor(interestRate, tau);
+            //NormalDisribution n = new NormalDisribution();
+            //double d = ((Math.Log(1.0 + contract._strike)))
+            return 0.0;
+            
+        }
+
+        private double calculateDiscountFactor(double interestRate, double tau)
+        {
+            return Math.Exp(-interestRate * tau);
+
+        }
+
     }
 }
