@@ -25,10 +25,12 @@ namespace ModelLibrary
         public double calculatePrice(
             PlainVanillaOption contract, double interestRate, double volatility)
         {
-            //double tau = contract._maturity;
-            //double discountFactor = calculateDiscountFactor(interestRate, tau);
-            //NormalDisribution n = new NormalDisribution();
-            //double d = ((Math.Log(1.0 + contract._strike)))
+            double tau = contract._maturity;
+            double discountFactor = calculateDiscountFactor(interestRate, tau);
+            NormalDisribution n = new NormalDisribution();
+            double dayCountFraction = tau;
+            double discountFactorNext = 0.9; // FIX ME
+            double d = (((Math.Log(1.0 + contract._strike * dayCountFraction) * discountFactorNext)/discountFactor) + volatility * volatility * 0.5) / volatility;
             return 0.0;
             
         }
