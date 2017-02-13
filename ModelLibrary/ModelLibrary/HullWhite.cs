@@ -29,7 +29,7 @@ namespace ModelLibrary
             double discountFactor = calculateDiscountFactor(interestRate, tau);
             NormalDisribution n = new NormalDisribution();
             double dayCountFraction = tau;
-            double discountFactorNext = 0.9; // FIX ME
+            double discountFactorNext = tau + 0.5; // for 6M LIBOR
             double d = (((Math.Log(1.0 + contract._strike * dayCountFraction) * discountFactorNext)/discountFactor) + volatility * volatility * 0.5) / volatility;
             return 0.0;
             
