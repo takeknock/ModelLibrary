@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoxMuller.cs" />
+    <Compile Include="DualNumber.cs" />
     <Compile Include="Integration\RectangleApproximation.cs" />
     <Compile Include="Integration\SimpsonApproximation.cs" />
     <Compile Include="Integration\TrapezoidApproximation.cs" />

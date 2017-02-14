@@ -49,6 +49,7 @@
     <Compile Include="PowerOption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpreadOption.cs" />
+    <Compile Include="Swaption.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
