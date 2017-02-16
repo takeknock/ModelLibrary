@@ -7,16 +7,33 @@ using System.Threading.Tasks;
 namespace Utility
 {
 
-    class DualNumber<T>
+    class DualNumber
     {
-        public T _a { get; private set; }
-        public T _b { get; private set; }
-        private Type this_type = typeof(DualNumber<T>);
+        public double a { get; private set; }
+        public double b { get; private set; }
+        private Type this_type = typeof(DualNumber);
 
-        //static public this_type operator +=(DualNumber<T> rhs)
+        public DualNumber(double  a, double b)
+        {
+            this.a = a;
+            this.b = b;
+        }
+        
+
+        //static public DualNumber operator +=(DualNumber rhs)
         //{
-        //    _a += rhs._a;
-        //    return this;
+        //    double next = rhs.a;
+        //    return new DualNumber();
         //}
+
+        static public DualNumber operator +(DualNumber x, DualNumber y)
+        {
+            return new DualNumber(x.a + y.a, x.b + y.b);
+        }
+
+        static public DualNumber operator -(DualNumber x, DualNumber y)
+        {
+            return new DualNumber(x.a - y.a, x.b - y.b);
+        }
     }
 }
