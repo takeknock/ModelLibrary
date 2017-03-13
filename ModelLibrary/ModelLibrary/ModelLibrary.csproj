@@ -55,6 +55,8 @@
     <Compile Include="MonteCarlo\Discretization\IDiscretizer.cs" />
     <Compile Include="MonteCarlo\LognormalImpl.cs" />
     <Compile Include="MonteCarlo\MonteCarloRunner.cs" />
+    <Compile Include="Portfolio\Asset.cs" />
+    <Compile Include="Portfolio\EfficientFrontier.cs" />
     <Compile Include="Rebonato.cs" />
     <Compile Include="SABR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
