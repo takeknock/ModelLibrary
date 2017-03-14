@@ -132,6 +132,11 @@ namespace ModelLibrary.diffusion
             return normalDistributed;
         }
 
+        public double black(double volatility, double interestRate, double tau, double strike, double underlying)
+        {
+
+            return 0.0;
+        }
 
     }
 }
