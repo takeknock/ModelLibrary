@@ -148,6 +148,13 @@ namespace ModelLibrary.diffusion
 
         }
        
+        public double calculateBlackScholesMertonVega(double forward, double strike, double maturity, double interestRate, double volatility)
+        {
+            NormalDisribution n = new NormalDisribution();
+            double d1 = calculateD1(forward, strike, maturity, interestRate, volatility);
+            double vega = forward * n.cumulativeDensityFuntion(d1) * Math.Sqrt(maturity);
+            return vega;
+        }
 
     }
 }
