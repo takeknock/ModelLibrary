@@ -156,5 +156,20 @@ namespace ModelLibrary.diffusion
             return vega;
         }
 
+        public double calculateImpliedVolatility(double forward, double strike, double maturity, double interestRate, double premium, double start, int numberOfIteration = 100, double tolerance = 10E-9)
+        {
+            double estimatedVolatility = start;
+            for (int i = 0; i < numberOfIteration; ++i)
+            {
+                double diff = (black(forward, strike, maturity, interestRate, estimatedVolatility) - premium)
+                    / calculateBlackScholesMertonVega(forward, strike, maturity, interestRate, estimatedVolatility);
+
+                if (diff < tolerance)
+                    break;
+                estimatedVolatility -= diff;
+            }
+
+            return estimatedVolatility;
+        }
     }
 }
