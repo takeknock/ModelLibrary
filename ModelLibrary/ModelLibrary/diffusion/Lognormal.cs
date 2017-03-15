@@ -135,12 +135,19 @@ namespace ModelLibrary.diffusion
         public double black(double volatility, double interestRate, double maturity, double strike, double forward)
         {
             NormalDisribution n = new NormalDisribution();
-            double d1 = (Math.Log(forward / strike) + (interestRate + 0.5 * volatility * volatility) * maturity)
-                / (volatility * Math.Sqrt(maturity));
+            double d1 = calculateD1(forward, strike, maturity, interestRate, volatility);
             double d2 = d1 - 0.5 * volatility * Math.Sqrt(maturity);
             return forward * n.cumulativeDensityFuntion(d1) 
                 - strike * Math.Exp(- interestRate * maturity) * n.cumulativeDensityFuntion(d2);
         }
+
+        private double calculateD1(double forward, double strike, double maturity, double interestRate, double volatility)
+        {
+            return (Math.Log(forward / strike) + (interestRate + 0.5 * volatility * volatility) * maturity)
+                / (volatility * Math.Sqrt(maturity));
+
+        }
+       
 
     }
 }
