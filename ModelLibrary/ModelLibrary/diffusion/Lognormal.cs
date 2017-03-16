@@ -134,6 +134,8 @@ namespace ModelLibrary.diffusion
 
         public double black(double volatility, double interestRate, double maturity, double strike, double forward)
         {
+            if (volatility <= 0)
+                throw new NotSupportedException("volatility must be positive.");
             NormalDisribution n = new NormalDisribution();
             double d1 = calculateD1(forward, strike, maturity, interestRate, volatility);
             double d2 = d1 - 0.5 * volatility * Math.Sqrt(maturity);
