@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ad\Constant.cs" />
+    <Compile Include="ad\IAutomaticDifferenciation.cs" />
+    <Compile Include="ad\Operator.cs" />
     <Compile Include="BoxMuller.cs" />
     <Compile Include="DualNumber.cs" />
     <Compile Include="Integration\RectangleApproximation.cs" />
