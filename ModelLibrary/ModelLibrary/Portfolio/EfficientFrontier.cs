@@ -42,7 +42,7 @@ namespace ModelLibrary.Portfolio
             return weightA * weightA * a.volatility * a.volatility
                 + (1.0 - weightA) * (1.0 - weightA) * b.volatility * b.volatility
                 + 2.0 * weightA * (1.0 - weightA) * a.volatility * b.volatility * correlation;
-
+                
         }
 
     }
