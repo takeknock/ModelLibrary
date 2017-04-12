@@ -148,11 +148,13 @@ xcopy /Y ..\x64\Debug\YieldCurve.dll ..\Adapter\bin\Debug\</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="sample.h" />
     <ClInclude Include="Tenor.h" />
     <ClInclude Include="YieldCurve.h" />
     <ClInclude Include="YieldCurveBuilder.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sample.cpp" />
     <ClCompile Include="swig_wrap.cxx" />
     <ClCompile Include="Tenor.cpp" />
     <ClCompile Include="YieldCurve.cpp" />
