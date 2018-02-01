@@ -8,7 +8,11 @@ namespace Market
 {
     public class Tenor
     {
-        public string _tenor { get; private set; }
+        public string _tenor
+        {
+            get;
+            private set;
+        }
 
         Tenor(string tenor)
         {

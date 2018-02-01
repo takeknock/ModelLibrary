@@ -9,7 +9,7 @@ namespace Market
     public class SwapRate
     {
 
-        public double quote;
+        private double quote;
         
 
         public SwapRate(double swapValue)
