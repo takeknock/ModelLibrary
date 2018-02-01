@@ -21,6 +21,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityTest", "UtilityTest\UtilityTest.csproj", "{9D87C1D2-FC0F-4A69-B501-9D303E7BFD2A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market", "Market\Market.csproj", "{9D5F0AA8-A21A-4A78-B583-99459337F870}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26} = {3F0077D6-2979-44D2-A0AF-5507DA819B26}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YieldCurve", "YieldCurve\YieldCurve.vcxproj", "{410803B7-FE31-4E49-A583-E6AFC7798057}"
 EndProject
@@ -34,6 +37,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YieldCurveCs", "YieldCurveCs\YieldCurveCs.csproj", "{FD8AF47A-9101-4D43-A30C-21C9312ABD22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YieldCurveCsTest", "YieldCurveCsTest\YieldCurveCsTest.csproj", "{6C85CF9E-2FBE-41C2-942B-6E75F21E8CEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumConst", "EnumConst\EnumConst.csproj", "{3F0077D6-2979-44D2-A0AF-5507DA819B26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -198,6 +203,18 @@ Global
 		{6C85CF9E-2FBE-41C2-942B-6E75F21E8CEF}.Release|x64.Build.0 = Release|Any CPU
 		{6C85CF9E-2FBE-41C2-942B-6E75F21E8CEF}.Release|x86.ActiveCfg = Release|Any CPU
 		{6C85CF9E-2FBE-41C2-942B-6E75F21E8CEF}.Release|x86.Build.0 = Release|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Debug|x64.Build.0 = Debug|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Debug|x86.Build.0 = Debug|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Release|x64.ActiveCfg = Release|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Release|x64.Build.0 = Release|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Release|x86.ActiveCfg = Release|Any CPU
+		{3F0077D6-2979-44D2-A0AF-5507DA819B26}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

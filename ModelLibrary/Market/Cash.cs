@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Market
 {
-    class Cash
+    public class Cash
     {
         private double mid_;
         private DateTime startDate_;

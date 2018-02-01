@@ -40,12 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cash.cs" />
     <Compile Include="SwapRate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tenor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnumConst\EnumConst.csproj">
+      <Project>{3f0077d6-2979-44d2-a0af-5507da819b26}</Project>
+      <Name>EnumConst</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
