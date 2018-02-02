@@ -3,26 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EnumConst;
 
 namespace Market
 {
     public class SwapRate
     {
 
-        private double quote;
-        
+        private double mid;
+        private Tenor tenor;
 
-        public SwapRate(double swapValue)
+        public SwapRate(Tenor tenor, double swapValue)
         {
-            quote = swapValue;
+            Value = swapValue;
+            Tenor = tenor;
         }
 
         public decimal? ToDecimal()
         {
-            if (quote == 0.0)
+            if (Value == 0.0)
                 return null;
 
-            return (decimal)quote;
+            return (decimal)Value;
+        }
+
+        public Tenor Tenor
+        {
+            get { return tenor; }
+            private set { tenor = value; }
+        }
+
+        public double Value
+        {
+            get { return mid; }
+            private set { mid = value; }
         }
     }
 }
