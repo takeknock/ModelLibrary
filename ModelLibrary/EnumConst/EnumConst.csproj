@@ -41,8 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessDayConvention.cs" />
+    <Compile Include="Currency.cs" />
     <Compile Include="DayCountConvention.cs" />
+    <Compile Include="DiscountType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tenor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
