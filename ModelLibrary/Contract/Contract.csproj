@@ -41,10 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CashOnDeliveryOption.cs" />
+    <Compile Include="Components\Leg.cs" />
     <Compile Include="CompoundOption.cs" />
     <Compile Include="DigitalOption\AssetDigital.cs" />
     <Compile Include="DigitalOption\CashDigital.cs" />
     <Compile Include="DigitalOption\IDigitalOption.cs" />
+    <Compile Include="InterestRateSwap.cs" />
     <Compile Include="PlainVanillaOption.cs" />
     <Compile Include="PowerOption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnumConst\EnumConst.csproj">
+      <Project>{3f0077d6-2979-44d2-a0af-5507da819b26}</Project>
+      <Name>EnumConst</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
