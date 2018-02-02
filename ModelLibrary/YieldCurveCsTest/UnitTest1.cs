@@ -12,7 +12,7 @@ namespace YieldCurveCsTest
         [TestMethod]
         public void createYc()
         {
-            List<Cash> cashList = createCashList();
+            List<Depo> cashList = createCashList();
             DateTime asof = new DateTime(20180101);
             YieldCurve yc = new YieldCurve(asof, cashList);
             yc.build();
@@ -21,12 +21,12 @@ namespace YieldCurveCsTest
             Assert.AreEqual(expected, actual, 10E-14);
         }
 
-        private List<Cash> createCashList()
+        private List<Depo> createCashList()
         {
-            Cash c = new Cash(1.0, new DateTime(20180101), new DateTime(20180201));
-            List<Cash> cashList = new List<Cash>();
+            Depo c = new Depo(1.0, new DateTime(20180101), new DateTime(20180201));
+            List<Depo> cashList = new List<Depo>();
             cashList.Add(c);
-            return new List<Cash>(cashList);
+            return new List<Depo>(cashList);
         }
     }
 }

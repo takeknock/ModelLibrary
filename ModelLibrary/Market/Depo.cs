@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Market
 {
-    public class Cash
+    public class Depo
     {
         private double mid_;
         private DateTime startDate_;
@@ -15,26 +15,26 @@ namespace Market
         private EnumConst.BusinessDayConvention bdc;
         private Tenor tenor;
 
-        public Cash(double mid, DateTime start, DateTime end)
+        public Depo(double mid, DateTime start, DateTime end)
         {
-            this.mid = mid;
-            startDate = start;
-            endDate = end;
+            Mid = mid;
+            StartDate = start;
+            EndDate = end;
         }
     
-        public double mid
+        public double Mid
         {
             get { return mid_; }
             private set { mid_ = value; }
         }
 
-        public DateTime startDate
+        public DateTime StartDate
         {
             get { return startDate_; }
             private set { startDate_ = value; }
         }
 
-        public DateTime endDate
+        public DateTime EndDate
         {
             get { return endDate_; }
             private set { endDate_ = value; }

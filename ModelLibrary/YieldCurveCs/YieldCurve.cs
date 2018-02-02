@@ -10,11 +10,11 @@ namespace YieldCurveCs
     public class YieldCurve
     {
 
-        private List<Cash> cashList;
+        private List<Depo> cashList;
         private List<Tuple<DateTime, double>> dfs;
         private DateTime asof;
 
-        public YieldCurve(DateTime asof, List<Cash> cash)
+        public YieldCurve(DateTime asof, List<Depo> cash)
         {
             this.asof = asof;
             cashList = cash;
@@ -30,7 +30,7 @@ namespace YieldCurveCs
             dfs = cashList.Select(e => calculateDf(e)).ToList();
         }
 
-        private Tuple<DateTime, double> calculateDf(Cash cash)
+        private Tuple<DateTime, double> calculateDf(Depo cash)
         {
             double mid = cash.mid;
             return new Tuple<DateTime, double>(cash.endDate, 1.0 / (1.0 + mid));
