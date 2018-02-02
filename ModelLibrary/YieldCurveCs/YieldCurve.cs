@@ -10,15 +10,16 @@ namespace YieldCurveCs
 {
     public class YieldCurve
     {
-
         private List<Depo> cashList;
+        private List<SwapRate> swapList;
         private List<Tuple<DateTime, double>> dfs;
         private DateTime asof;
 
-        public YieldCurve(DateTime asof, List<Depo> cash)
+        public YieldCurve(DateTime asof, List<Depo> cash, List<SwapRate> swap)
         {
             this.asof = asof;
             cashList = cash;
+            swapList = swap;
         }
 
         public double forwardRate(
@@ -41,12 +42,24 @@ namespace YieldCurveCs
         private void bootstrap()
         {
             dfs = cashList.Select(e => calculateDf(e)).ToList();
+            Tuple<DateTime, double> half = dfs.Last();
+            DayCountManager mgr = new DayCountManager();
+            double halfDayCountFraction = 0.5;
+            double df = calculateDf(swapList.ElementAt(0), halfDayCountFraction, half.Item2, halfDayCountFraction);
+            Tuple<DateTime, double> oneYear = new Tuple<DateTime, double>(asof.AddYears(1), df);
+            dfs.Add(oneYear);
         }
 
         private Tuple<DateTime, double> calculateDf(Depo cash)
         {
             double mid = cash.Mid;
             return new Tuple<DateTime, double>(cash.EndDate, 1.0 / (1.0 + mid));
+        }
+
+        private double calculateDf(SwapRate swap, double dcf_1y, double df_6m, double dcf_6m)
+        {
+            double df_1y = 1.0 / (dcf_1y * swap.Value) - df_6m * dcf_6m / dcf_1y;
+            return df_1y;
         }
 
         public double df(DateTime target)
