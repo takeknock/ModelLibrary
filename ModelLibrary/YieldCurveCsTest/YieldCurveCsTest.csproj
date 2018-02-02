@@ -54,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EnumConst\EnumConst.csproj">
+      <Project>{3f0077d6-2979-44d2-a0af-5507da819b26}</Project>
+      <Name>EnumConst</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Market\Market.csproj">
       <Project>{9d5f0aa8-a21a-4a78-b583-99459337f870}</Project>
       <Name>Market</Name>
