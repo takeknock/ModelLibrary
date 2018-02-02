@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculator.cs" />
+    <Compile Include="RateCalculator.cs" />
     <Compile Include="Depo.cs" />
     <Compile Include="DayCountManager.cs" />
     <Compile Include="SwapRate.cs" />

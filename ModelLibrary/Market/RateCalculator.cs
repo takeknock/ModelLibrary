@@ -7,8 +7,16 @@ using EnumConst;
 
 namespace Market
 {
-    class Calculator
+    public class RateCalculator
     {
+        public double calculateForwardRate(
+            double startDf, double endDf, double dayCountFraction)
+        {
+            double forwardRate = 
+                (startDf / endDf - 1.0)
+                / dayCountFraction;
+            return forwardRate;
+        }
         public double calculateDiscountFactor(ZeroRate rate, TimeSpan target)
         {
             double dayCountFraction = calcDayCountFraction(target, rate.Dcc);

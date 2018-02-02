@@ -21,13 +21,16 @@ namespace YieldCurveCs
             cashList = cash;
         }
 
-        public double forwardRate(DateTime startDate, DateTime endDate, DayCountConvention dcc)
+        public double forwardRate(
+            DateTime startDate, DateTime endDate, DayCountConvention dcc)
         {
+            RateCalculator calc = new Market.RateCalculator();
             DayCountManager mgr = new DayCountManager();
+
             double dayCountFraction = mgr.calculateDcf(endDate - startDate, dcc);
-            double forwardRate = (df(startDate) / df(endDate) - 1.0)
-                / dayCountFraction;
-            return forwardRate;
+
+            return calc.calculateForwardRate(
+                df(startDate), df(endDate), dayCountFraction);
         }
 
         public void build()
