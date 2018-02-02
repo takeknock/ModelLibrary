@@ -39,6 +39,5 @@ namespace Market
             get { return endDate_; }
             private set { endDate_ = value; }
         }
-
     }
 }

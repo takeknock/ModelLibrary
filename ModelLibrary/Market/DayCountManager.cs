@@ -7,7 +7,7 @@ using EnumConst;
 
 namespace Market
 {
-    class DayCountManager
+    public class DayCountManager
     {
 
         // various specific calculation with daycount convention

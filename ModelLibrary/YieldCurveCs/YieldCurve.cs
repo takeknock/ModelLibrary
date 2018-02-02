@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Market;
+using EnumConst;
 
 namespace YieldCurveCs
 {
@@ -20,6 +21,15 @@ namespace YieldCurveCs
             cashList = cash;
         }
 
+        public double forwardRate(DateTime startDate, DateTime endDate, DayCountConvention dcc)
+        {
+            DayCountManager mgr = new DayCountManager();
+            double dayCountFraction = mgr.calculateDcf(endDate - startDate, dcc);
+            double forwardRate = (df(startDate) / df(endDate) - 1.0)
+                / dayCountFraction;
+            return forwardRate;
+        }
+
         public void build()
         {
             bootstrap();
@@ -32,8 +42,8 @@ namespace YieldCurveCs
 
         private Tuple<DateTime, double> calculateDf(Depo cash)
         {
-            double mid = cash.mid;
-            return new Tuple<DateTime, double>(cash.endDate, 1.0 / (1.0 + mid));
+            double mid = cash.Mid;
+            return new Tuple<DateTime, double>(cash.EndDate, 1.0 / (1.0 + mid));
         }
 
         public double df(DateTime target)
