@@ -7,26 +7,27 @@ using EnumConst;
 
 namespace Market
 {
-    public class Depo
+    public class Repo
     {
-        private double mid_;
+        private double bid_;
+        private double offer_;
         private DateTime startDate_;
         private DateTime endDate_;
         private EnumConst.DayCountConvention dcc;
         private EnumConst.BusinessDayConvention bdc;
         private Tenor tenor;
 
-        public Depo(double mid, DateTime start, DateTime end)
+        public Repo(double bid, double offer, DateTime start, DateTime end)
         {
-            Mid = mid;
+            bid_ = bid;
+            offer_ = offer;
             StartDate = start;
             EndDate = end;
         }
     
         public double Mid
         {
-            get { return mid_; }
-            private set { mid_ = value; }
+            get { return (bid_ + offer_) / 2.0; }
         }
 
         public DateTime StartDate

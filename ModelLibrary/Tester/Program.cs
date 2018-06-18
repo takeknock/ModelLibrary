@@ -90,6 +90,8 @@ namespace Tester
             Console.WriteLine("plain vanilla option price with MonteCarlo: " + vanillaOptionPriceWithMc.ToString());
 
             logger.Info("=============================pricing finished=============================");
+
+            
         }
     }
 }

@@ -16,13 +16,13 @@ namespace RootFindingTest
         public void TestMethod1()
         {
             // test
-            double x = 1.0;
-            const double expectedRight = 4.0;
-            const double expectedLeft = -1.0;
+            //double x = 1.0;
+            //const double expectedRight = 4.0;
+            //const double expectedLeft = -1.0;
 
-            Bisect bisect = new Bisect(quadraticTestFunction, 14.0);
-            bisect.solve();
-            double actual = bisect.Answer;
+            //Bisect bisect = new Bisect(quadraticTestFunction, 14.0);
+            //bisect.solve();
+            //double actual = bisect.Answer;
         }
     }
 }

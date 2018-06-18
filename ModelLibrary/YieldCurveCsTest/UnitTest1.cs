@@ -13,7 +13,7 @@ namespace YieldCurveCsTest
         [TestMethod]
         public void check6mDf()
         {
-            List<Depo> cashList = createCashList();
+            List<Repo> cashList = createCashList();
             List<SwapRate> swapList = createSwapList();
             DateTime asof = DateTime.Parse("2018/1/1");
             YieldCurve yc = new YieldCurve(asof, cashList, swapList);
@@ -27,7 +27,7 @@ namespace YieldCurveCsTest
         [TestMethod]
         public void check1yDf()
         {
-            List<Depo> cashList = createCashList();
+            List<Repo> cashList = createCashList();
             List<SwapRate> swapList = createSwapList();
             DateTime asof = DateTime.Parse("2018/1/1");
             YieldCurve yc = new YieldCurve(asof, cashList, swapList);
@@ -39,14 +39,14 @@ namespace YieldCurveCsTest
             Assert.AreEqual(expected, actual, 10E-5);
         }
 
-        private List<Depo> createCashList()
+        private List<Repo> createCashList()
         {
             DateTime start = DateTime.Parse("2018/1/1");
             DateTime end = start.AddMonths(6);
-            Depo c = new Depo(1.0, start, end);
-            List<Depo> cashList = new List<Depo>();
+            Repo c = new Repo(0.12, 0.11, start, end);
+            List<Repo> cashList = new List<Repo>();
             cashList.Add(c);
-            return new List<Depo>(cashList);
+            return new List<Repo>(cashList);
         }
 
         private List<SwapRate> createSwapList()
